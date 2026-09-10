@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Semana do Cliente GCB · Renda Fixa High Yield</title>
+<meta name="description" content="Até 34% ao ano de rentabilidade máxima prevista em uma seleção de ativos judiciais da GCB. Renda Fixa High Yield com taxas prefixadas, em condições exclusivas até 15/09.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Semana do Cliente GCB · Renda Fixa High Yield">
+<meta property="og:description" content="Até 34% ao ano de rentabilidade máxima prevista em uma seleção de ativos judiciais da GCB. Renda Fixa High Yield com taxas prefixadas, em condições exclusivas até 15/09.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Semana do Cliente GCB · Renda Fixa High Yield">
+<meta name="twitter:description" content="Até 34% ao ano de rentabilidade máxima prevista em uma seleção de ativos judiciais da GCB.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2325230F'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='700' fill='%2388BC6C' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+<style>
+@font-face{font-family:'Host Grotesk';src:url('/fonts/HostGrotesk-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Host Grotesk';src:url('/fonts/HostGrotesk-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Leksikal Flare';src:url('/fonts/LeksikalFlare-Regular.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Leksikal Flare';src:url('/fonts/LeksikalFlare-Bold.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap}
+:root{
+  /* Design System GCB · v1.0 · seção 3.1 e 4 — tokens copiados sem alteração */
+  --olive-950:#25230F; --olive-900:#312F14; --olive-800:#403E27;
+  --khaki:#A29C62; --khaki-dim:#6B6748;
+  --green:#88BC6C; --green-soft:#9DCC84; --green-deep:#6FA253;
+  --cream:#F7F5EE; --cream-dim:#EFEBDD;
+  --ink:#212121; --ink-soft:#55523A; --card:#FFFFFF;
+  --red:#C04A28; --red-bg:#FEF0EB; --amber:#C07428; --amber-bg:#FEF3E2;
+  --head:'Leksikal Flare','Host Grotesk',Georgia,serif;
+  --body:'Host Grotesk','Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --radius:18px;
+  --radius-sm:4px; --radius-md:8px; --radius-lg:12px; --radius-xl:16px; --radius-2xl:24px; --radius-full:9999px;
+  --shadow:0 10px 34px rgba(49,47,20,.08), 0 2px 8px rgba(49,47,20,.05);
+  --line:rgba(49,47,20,.13);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--body);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+.container{width:min(1180px,calc(100% - 40px));margin:auto}
+section{padding:84px 0}
+
+/* tipografia base — Design System seção 3.2 e 4 */
+h1,h2,h3{font-family:var(--head);font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.05}
+p{font-size:14px;line-height:1.6;color:var(--ink-soft)}
+.surface-dark p{color:var(--khaki)}
+
+.kicker{display:inline-flex;gap:9px;align-items:center;font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.18em;color:var(--green-deep)}
+.kicker:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green-deep)}
+.surface-dark .kicker{color:var(--green)}
+.surface-dark .kicker:before{background:var(--green)}
+
+/* botão — verbo decisivo, nunca "clique aqui" (Design System seção 2) */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:0 30px;
+  border-radius:var(--radius-full);font-weight:700;font-size:1rem;letter-spacing:.02em;
+  border:1px solid transparent;transition:transform .2s ease;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--green);color:var(--olive-950);box-shadow:0 12px 30px rgba(136,188,108,.28)}
+.btn-dark{background:var(--olive-900);color:var(--cream);box-shadow:0 12px 26px rgba(49,47,20,.2)}
+.btn-outline{background:var(--card);color:var(--olive-900);border-color:var(--line)}
+.btn-large{min-height:64px;padding:0 36px;font-size:1.02rem}
+
+/* HERO */
+.hero{background:
+  radial-gradient(circle at 80% 15%,rgba(136,188,108,.16),transparent 32%),
+  linear-gradient(150deg,var(--olive-950) 0%,var(--olive-900) 64%,var(--olive-800) 100%);
+  color:var(--cream);padding:22px 0 56px}
+.hero nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px}
+.brand{font-family:var(--head);font-weight:700;letter-spacing:.06em;color:var(--cream)}
+.date-pill{padding:10px 16px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,.18);
+  color:var(--khaki);font-size:.86rem;font-weight:700}
+.campaign-title{font-family:var(--body);font-size:clamp(1rem,2vw,1.3rem);font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:22px}
+.hero h1{font-size:clamp(2.6rem,5.6vw,5rem);line-height:.98;color:var(--cream);max-width:950px;margin:0 0 24px}
+.hero h1 span{color:var(--green)}
+.hero-copy{font-size:1.1rem;line-height:1.6;max-width:740px;color:var(--khaki);margin:0 0 26px}
+.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.hero-meta span{padding:9px 14px;border-radius:var(--radius-full);background:var(--olive-800);
+  border:1px solid rgba(255,255,255,.08);color:#E9E6D4;font-size:.82rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.05em}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-products{margin-top:44px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12)}
+.hero-products-label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  color:var(--khaki-dim);margin-bottom:13px}
+.hero-product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.hero-product-card{position:relative;padding:18px 18px 17px;border-radius:var(--radius-xl);
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  transition:background .2s ease,color .2s ease,transform .2s ease;overflow:hidden}
+.hero-product-card:before{content:"";position:absolute;inset:auto -20px -45px auto;width:90px;height:90px;
+  border-radius:50%;background:rgba(136,188,108,.14)}
+.hero-product-card:hover{background:var(--green);color:var(--olive-950);transform:translateY(-3px);border-color:var(--green)}
+.hero-product-card strong{display:block;font-family:var(--head);font-size:1rem;line-height:1.2;margin-bottom:5px}
+.hero-product-card span{font-size:.82rem;color:var(--khaki)}
+.hero-product-card:hover span{color:rgba(37,35,15,.7)}
+
+/* PRODUCTS */
+.products{background:var(--cream);padding-top:20px}
+.product{padding:72px 0 88px;border-bottom:1px solid var(--line);scroll-margin-top:22px}
+.product-header{text-align:center;max-width:900px;margin:0 auto 30px}
+.product-header h2{font-size:clamp(2.1rem,4.4vw,3.6rem);margin:12px 0 12px}
+.product-header p{max-width:730px;margin:0 auto;font-size:1.02rem}
+.video-wrap{max-width:980px;margin:0 auto}
+.video{aspect-ratio:16/9;border-radius:var(--radius-2xl);
+  background:linear-gradient(150deg,var(--green-soft),var(--green));
+  display:grid;place-items:center;position:relative;border:1px solid var(--line);box-shadow:var(--shadow)}
+.video:after{content:"▶";width:84px;height:84px;border-radius:50%;display:grid;place-items:center;
+  background:var(--olive-950);color:var(--cream);font-size:1.6rem;box-shadow:0 16px 32px rgba(37,35,15,.28)}
+.video small{position:absolute;bottom:22px;left:24px;font-weight:700;color:var(--olive-950)}
+.metrics{max-width:980px;margin:18px auto 14px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.metric{padding:18px 20px;border-radius:var(--radius-xl);background:var(--cream-dim);border:1px solid var(--line)}
+.metric span{display:block;font-size:.72rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
+.metric strong{font-family:var(--head);font-size:1.16rem;color:var(--ink)}
+.product-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:18px 0 40px}
+.story{max-width:900px;margin:0 auto;display:grid;gap:14px}
+.story-card{padding:28px 30px;border-radius:var(--radius-xl);border:1px solid var(--line)}
+.story-card h3{font-size:1.1rem;margin:0 0 10px}
+.story-card p{margin:0;font-size:.97rem}
+.story-card.invest{background:var(--card);box-shadow:var(--shadow)}
+.story-card.thesis{background:var(--cream-dim)}
+.story-card.diff{background:var(--olive-900);border-color:var(--olive-900);color:var(--cream)}
+.story-card.diff h3{color:var(--green)}
+.story-card.diff p{color:var(--khaki)}
+.evidence-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 4px}
+.evidence{padding:17px;border-radius:var(--radius-lg);background:var(--card);border:1px solid var(--line)}
+.evidence strong{display:block;font-family:var(--head);font-size:1.6rem;letter-spacing:-.02em;color:var(--ink);line-height:1}
+.evidence span{display:block;margin-top:7px;font-size:.78rem;color:var(--ink-soft)}
+.story-card.diff .evidence{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)}
+.story-card.diff .evidence strong{color:var(--green)}
+.story-card.diff .evidence span{color:var(--khaki)}
+
+/* RPV explainer */
+.rpv-explainer{max-width:900px;margin:18px auto 0;padding:28px;border-radius:var(--radius-2xl);
+  background:var(--cream-dim);border:1px solid var(--line)}
+.rpv-explainer h3{margin:0 0 8px}
+.rpv-explainer>p{margin:0 0 20px}
+.compare-rpv{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.compare-box{padding:22px;border-radius:var(--radius-xl);border:1px solid var(--line);background:var(--card)}
+.compare-box.accent{background:rgba(136,188,108,.16);border-color:rgba(111,162,83,.3)}
+.compare-box b{display:block;margin-bottom:8px;color:var(--ink);font-family:var(--head);font-size:1.02rem}
+.compare-box p{margin:0;font-size:.93rem}
+
+/* SIMULATOR — superfície escura: verde usado com parcimônia, só no accent (Design System seção 1) */
+.simulator{max-width:980px;margin:34px auto 0;background:var(--olive-950);border-radius:var(--radius-2xl);
+  padding:32px;color:var(--cream);box-shadow:var(--shadow)}
+.simulator-top{display:grid;grid-template-columns:1fr .8fr;gap:24px;align-items:end}
+.simulator h3{font-size:1.3rem;margin:0 0 6px;color:var(--cream)}
+.simulator .sub{margin:0;color:var(--khaki);font-size:.93rem}
+.amount-field label{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;
+  font-weight:700;margin-bottom:7px;color:var(--khaki)}
+.amount-input-wrap{display:flex;align-items:center;background:var(--cream);border-radius:var(--radius-lg);
+  border:1px solid rgba(255,255,255,.12);overflow:hidden}
+.amount-prefix{padding:0 0 0 16px;font-weight:700;color:var(--olive-900)}
+.amount-input{width:100%;border:0;outline:0;padding:15px 16px;font-weight:700;font-size:1.15rem;
+  color:var(--olive-900);background:transparent}
+.sim-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 16px}
+.sim-kpi{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-lg);padding:16px}
+.sim-kpi span{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--khaki-dim);margin-bottom:5px}
+.sim-kpi strong{font-family:var(--head);font-size:1.05rem;color:var(--cream)}
+.chart{height:285px;background:rgba(255,255,255,.04);border-radius:var(--radius-xl);border:1px solid rgba(255,255,255,.1);overflow:hidden}
+.chart svg{display:block;width:100%;height:100%}
+.chart-label{font-size:11px;font-family:var(--body);font-weight:700}
+.sim-note{font-size:.74rem;line-height:1.5;margin:12px 2px 0;color:var(--khaki-dim)}
+.sim-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:20px}
+
+/* EDUCATIONAL / AUTHORITY */
+.why{background:var(--cream-dim)}
+.section-head{display:grid;grid-template-columns:.86fr 1.14fr;gap:48px;align-items:end;margin-bottom:38px}
+.section-head h2{font-size:clamp(2rem,3.6vw,3.2rem);margin:12px 0 0}
+.section-head p{margin:0;font-size:1rem}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.why-card{padding:24px;border-radius:var(--radius-xl);background:var(--card);border:1px solid var(--line)}
+.why-card b{display:block;margin-bottom:7px;color:var(--ink);font-family:var(--head);font-size:.98rem}
+.why-card p{margin:0;font-size:.94rem}
+.authority{background:var(--olive-950);color:var(--cream)}
+.authority .kicker,.authority .section-head h2{color:var(--cream)}
+.authority .section-head h2{color:#F4F1E4}
+.authority .section-head p{color:var(--khaki)}
+.authority-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.authority-card{padding:24px;border-radius:var(--radius-xl);border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.045)}
+.authority-card strong{display:block;font-family:var(--head);color:var(--green);font-size:1.9rem;letter-spacing:-.02em;margin-bottom:6px}
+.authority-card span{font-size:.9rem;color:var(--khaki)}
+
+.final{background:var(--green);text-align:center}
+.final .container{max-width:860px}
+.final h2{font-size:clamp(2.2rem,4.2vw,3.8rem);color:var(--olive-950);margin:0 0 18px}
+.final p{margin:0 auto 28px;color:rgba(37,35,15,.72);max-width:720px}
+.disclaimer{font-size:.76rem;line-height:1.5;color:rgba(37,35,15,.64);margin-top:24px}
+
+@media(max-width:900px){
+  .hero-product-grid{grid-template-columns:1fr 1fr}
+  .section-head,.simulator-top{grid-template-columns:1fr}
+  .why-grid,.authority-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+  .container{width:min(100% - 28px,1180px)}
+  .hero{padding-bottom:42px}
+  .hero nav{margin-bottom:36px}
+  .hero h1{font-size:2.5rem}
+  .hero-product-grid,.metrics,.sim-kpis,.compare-rpv,.evidence-grid,.why-grid,.authority-grid{grid-template-columns:1fr}
+  .video{border-radius:var(--radius-xl)}
+  .simulator{padding:22px 18px}
+  .btn,.btn-large{width:100%}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <nav>
+      <div class="brand">GCB INVESTIMENTOS</div>
+      <div class="date-pill">Condições até 15/09</div>
+    </nav>
+
+    <div class="campaign-title">Semana do Cliente GCB</div>
+    <h1>High Yield em <span>condições exclusivas.</span></h1>
+    <p class="hero-copy">Até <strong>34% ao ano de rentabilidade máxima prevista</strong> em uma seleção de ativos judiciais da GCB.</p>
+
+    <div class="hero-meta">
+      <span>Renda Fixa High Yield</span>
+      <span>Taxas prefixadas</span>
+      <span>Dinâmica descorrelacionada do mercado tradicional</span>
+    </div>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-large" href="#pre-rpv-simulador">Simular meu retorno</a>
+    </div>
+
+    <div class="hero-products">
+      <div class="hero-products-label">Explore as oportunidades</div>
+      <div class="hero-product-grid">
+        <a class="hero-product-card" href="#pre-rpv"><strong>Cesta Pré-RPV</strong><span>25% a.a. prevista</span></a>
+        <a class="hero-product-card" href="#trabalhista"><strong>Créditos Trabalhistas</strong><span>32% a.a. prevista</span></a>
+        <a class="hero-product-card" href="#previdenciaria"><strong>RF Previdenciária</strong><span>32% a.a. prevista</span></a>
+        <a class="hero-product-card" href="#aloes"><strong>Operação Aloés</strong><span>34% a.a. prevista</span></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="products" id="oportunidades">
+  <div class="container">
+
+    <!-- PRÉ-RPV -->
+    <article class="product" id="pre-rpv">
+      <div class="product-header">
+        <div class="kicker">01 · Cesta Pré-RPV</div>
+        <h2>Pré-RPVs com taxa especial de 25% a.a. prevista.</h2>
+        <p>Uma estrutura de recebíveis judiciais de menor monta, com prazo formal mais curto e possibilidade de repasses ao longo da vida da operação.</p>
+      </div>
+
+      <div class="video-wrap"><div class="video"><small>Vídeo da lâmina · Cesta Pré-RPV</small></div></div>
+
+      <div class="metrics">
+        <div class="metric"><span>Rentabilidade prevista</span><strong>25% a.a.</strong></div>
+        <div class="metric"><span>Pagamento previsto do lastro</span><strong>20/11/2027</strong></div>
+        <div class="metric"><span>Nível de garantia</span><strong>Consultar no app</strong></div>
+      </div>
+
+      <div class="product-actions">
+        <a class="btn btn-dark btn-large" href="#pre-rpv-simulador">Simular meu retorno</a>
+        <a class="btn btn-outline btn-large" href="#">Ver lâmina</a>
+      </div>
+
+      <div class="story">
+        <div class="story-card invest">
+          <h3>O que você está investindo?</h3>
+          <p>A GCB adquire direitos de valores a receber da Justiça antes do pagamento oficial. Essas operações são estruturadas e disponibilizadas para investidores com prazos mais curtos. O retorno vem da antecipação desses pagamentos, já reconhecidos, com deságio.</p>
+        </div>
+
+        <div class="story-card thesis">
+          <h3>O que sustenta a tese?</h3>
+          <p>Os créditos passam por diligência prévia e a cessão é formalizada e protocolada nos autos. A carteira é pulverizada entre diferentes Pré-RPVs e recebe acompanhamento jurídico ao longo da operação.</p>
+          <div class="evidence-grid">
+            <div class="evidence"><strong>5-10</strong><span>Pré-RPVs por carteira, segundo a atualização da operação.</span></div>
+            <div class="evidence"><strong>Cash Sweep</strong><span>Possibilidade de repasses conforme os recebimentos acontecem.</span></div>
+            <div class="evidence"><strong>20/11/27</strong><span>Pagamento previsto do lastro da oferta.</span></div>
+          </div>
+        </div>
+
+        <div class="story-card diff">
+          <h3>Diferencial da operação</h3>
+          <p><strong>Uma estrutura que pode devolver recursos antes do vencimento final.</strong> Conforme os RPVs da carteira são expedidos e pagos, o Cash Sweep permite que os valores sejam repassados ao longo da vida da operação, de acordo com os eventos de liquidação.</p>
+        </div>
+      </div>
+
+      <div class="rpv-explainer">
+        <h3>Mas, afinal, o que é um RPV?</h3>
+        <p>RPV significa <strong>Requisição de Pequeno Valor</strong>. É uma forma de pagamento de condenações de menor monta pela Fazenda Pública. Na Justiça Federal, em regra, abrange valores de até 60 salários mínimos.</p>
+        <div class="compare-rpv">
+          <div class="compare-box accent">
+            <b>Pré-RPV</b>
+            <p>A GCB adquire direitos de valores a receber da Justiça antes do pagamento oficial. Essas operações são estruturadas e disponibilizadas para investidores com prazos mais curtos. O retorno vem da antecipação desses pagamentos, já reconhecidos, com deságio.</p>
+          </div>
+          <div class="compare-box">
+            <b>Precatórios Federais</b>
+            <p>A GCB compra direitos de recebimento contra o governo já reconhecidos na Justiça. As operações são estruturadas com base nesses créditos e disponibilizadas para investimento. O retorno vem quando o governo realiza o pagamento no futuro.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="simulator" id="pre-rpv-simulador" data-rate="25" data-maturity="2027-11-20" data-product="Cesta Pré-RPV">
+        <div class="simulator-top">
+          <div>
+            <h3>Simule o potencial de retorno</h3>
+            <p class="sub">Digite um valor para visualizar uma projeção ilustrativa até o pagamento previsto do lastro.</p>
+          </div>
+          <div class="amount-field">
+            <label>Valor do aporte</label>
+            <div class="amount-input-wrap"><span class="amount-prefix">R$</span><input class="amount-input" inputmode="decimal" value="1.000"></div>
+          </div>
+        </div>
+        <div class="sim-kpis">
+          <div class="sim-kpi"><span>Taxa prevista</span><strong>25% a.a.</strong></div>
+          <div class="sim-kpi"><span>Prazo até a data prevista</span><strong class="term-output">···</strong></div>
+          <div class="sim-kpi"><span>Potencial bruto no prazo</span><strong class="future-output">···</strong></div>
+        </div>
+        <div class="chart"><svg viewBox="0 0 900 285" preserveAspectRatio="none"></svg></div>
+        <div class="sim-note">Simulação ilustrativa com capitalização anual composta até a data formal informada. Não considera impostos, amortizações, Cash Sweep, alterações de cronograma ou particularidades do fluxo da oferta. CDI de referência do mockup: 14,90% a.a., substituir pelo parâmetro oficial da campanha.</div>
+        <div class="sim-actions"><a class="btn btn-primary btn-large" href="#">Investir nesta oportunidade</a><a class="btn btn-outline btn-large" href="#">Ver lâmina</a></div>
+      </div>
+    </article>
+
+    <!-- TRABALHISTA -->
+    <article class="product" id="trabalhista">
+      <div class="product-header">
+        <div class="kicker">02 · Cesta de Créditos Trabalhistas</div>
+        <h2>26 créditos. Uma carteira que já começou a avançar.</h2>
+        <p>Uma estrutura diversificada entre Grupo Samcil e Grupo São Jorge, com taxa especial de 32% a.a. prevista durante a campanha.</p>
+      </div>
+
+      <div class="video-wrap"><div class="video"><small>Vídeo da lâmina · Créditos Trabalhistas</small></div></div>
+
+      <div class="metrics">
+        <div class="metric"><span>Rentabilidade prevista</span><strong>32% a.a.</strong></div>
+        <div class="metric"><span>Vencimento previsto</span><strong>01/04/2030</strong></div>
+        <div class="metric"><span>Nível de garantia</span><strong>Consultar no app</strong></div>
+      </div>
+
+      <div class="product-actions">
+        <a class="btn btn-dark btn-large" href="#trabalhista-simulador">Simular meu retorno</a>
+        <a class="btn btn-outline btn-large" href="#">Ver lâmina</a>
+      </div>
+
+      <div class="story">
+        <div class="story-card invest">
+          <h3>O que você está investindo?</h3>
+          <p>Uma carteira securitizada com <strong>26 créditos trabalhistas em fase de execução</strong>, distribuídos entre dois grupos devedores: Samcil e São Jorge. Os créditos trabalhistas possuem preferência legal no recebimento e cada grupo possui sua própria estratégia de recuperação.</p>
+        </div>
+
+        <div class="story-card thesis">
+          <h3>O que sustenta a tese?</h3>
+          <p>A operação combina acompanhamento contencioso, busca patrimonial, recebimentos direcionados a conta Escrow de gestão administrativa da GCB e monitoramento dos eventos de liquidação.</p>
+          <div class="evidence-grid">
+            <div class="evidence"><strong>26</strong><span>créditos trabalhistas na carteira.</span></div>
+            <div class="evidence"><strong>10</strong><span>processos da Samcil já com depósito efetuado, segundo a atualização de 08/09.</span></div>
+            <div class="evidence"><strong>~R$ 10 mi</strong><span>em recursos já presentes no processo do Grupo São Jorge, segundo a atualização de 08/09.</span></div>
+          </div>
+        </div>
+
+        <div class="story-card diff">
+          <h3>Diferencial da operação</h3>
+          <p><strong>Há eventos de recebimento acontecendo antes do vencimento formal.</strong> No Grupo Samcil, a expectativa atual é de levantamento de aproximadamente R$ 1,2 milhão até meados de outubro. No Grupo São Jorge, a tese conta com recursos e ativos identificados para sustentar a estratégia de execução.</p>
+        </div>
+      </div>
+
+      <div class="simulator" id="trabalhista-simulador" data-rate="32" data-maturity="2030-04-01" data-product="Créditos Trabalhistas">
+        <div class="simulator-top">
+          <div>
+            <h3>Simule o potencial de retorno</h3>
+            <p class="sub">Altere o aporte e veja a curva ilustrativa até o vencimento formal da operação.</p>
+          </div>
+          <div class="amount-field">
+            <label>Valor do aporte</label>
+            <div class="amount-input-wrap"><span class="amount-prefix">R$</span><input class="amount-input" inputmode="decimal" value="1.000"></div>
+          </div>
+        </div>
+        <div class="sim-kpis">
+          <div class="sim-kpi"><span>Taxa prevista</span><strong>32% a.a.</strong></div>
+          <div class="sim-kpi"><span>Prazo até o vencimento</span><strong class="term-output">···</strong></div>
+          <div class="sim-kpi"><span>Potencial bruto no prazo</span><strong class="future-output">···</strong></div>
+        </div>
+        <div class="chart"><svg viewBox="0 0 900 285" preserveAspectRatio="none"></svg></div>
+        <div class="sim-note">Simulação ilustrativa com capitalização anual composta até o vencimento formal. Não considera impostos, amortizações, Cash Sweep, recebimentos antecipados ou diferenças entre duration e vencimento. CDI de referência do mockup: 14,90% a.a., substituir pelo parâmetro oficial da campanha.</div>
+        <div class="sim-actions"><a class="btn btn-primary btn-large" href="#">Investir nesta oportunidade</a><a class="btn btn-outline btn-large" href="#">Ver lâmina</a></div>
+      </div>
+    </article>
+
+    <!-- PREVIDENCIÁRIA -->
+    <article class="product" id="previdenciaria">
+      <div class="product-header">
+        <div class="kicker">03 · Renda Fixa Previdenciária</div>
+        <h2>Mais risco na origem. Mais potencial de retorno.</h2>
+        <p>Uma tese baseada na seleção de ações previdenciárias ainda sem sentença, com critérios de elegibilidade, diversificação e monitoramento contínuo.</p>
+      </div>
+
+      <div class="video-wrap"><div class="video"><small>Vídeo da lâmina · Renda Fixa Previdenciária</small></div></div>
+
+      <div class="metrics">
+        <div class="metric"><span>Rentabilidade prevista</span><strong>32% a.a.</strong></div>
+        <div class="metric"><span>Vencimento previsto</span><strong>19/11/2029</strong></div>
+        <div class="metric"><span>Nível de garantia</span><strong>Consultar no app</strong></div>
+      </div>
+
+      <div class="product-actions">
+        <a class="btn btn-dark btn-large" href="#previdenciaria-simulador">Simular meu retorno</a>
+        <a class="btn btn-outline btn-large" href="#">Ver lâmina</a>
+      </div>
+
+      <div class="story">
+        <div class="story-card invest">
+          <h3>O que você está investindo?</h3>
+          <p>A GCB investe em ações previdenciárias ainda sem sentença, com base na expectativa de ganho dos processos. As operações são estruturadas a partir da compra de honorários futuros de casos selecionados com critérios rigorosos.</p>
+        </div>
+
+        <div class="story-card thesis">
+          <h3>O que sustenta a tese?</h3>
+          <p>Antes da securitização, os processos passam por análise jurídica e precisam atender aos critérios de elegibilidade da operação. Cada lote é monitorado ao longo da sua evolução, com relatórios periódicos e acompanhamento dos casos.</p>
+          <div class="evidence-grid">
+            <div class="evidence"><strong>32% a.a.</strong><span>rentabilidade prevista da operação.</span></div>
+            <div class="evidence"><strong>INSS</strong><span>ações acidentárias que podem originar RPVs ou precatórios em caso de êxito.</span></div>
+            <div class="evidence"><strong>Monitoramento</strong><span>acompanhamento periódico dos processos adquiridos.</span></div>
+          </div>
+        </div>
+
+        <div class="story-card diff">
+          <h3>Diferencial da operação</h3>
+          <p><strong>Como o pagamento depende do desfecho da ação, é um investimento de mais risco, com potencial de retorno maior.</strong> Diferentemente de uma tese em que o crédito já foi reconhecido definitivamente, aqui o ganho depende da procedência dos processos selecionados.</p>
+        </div>
+      </div>
+
+      <div class="simulator" id="previdenciaria-simulador" data-rate="32" data-maturity="2029-11-19" data-product="Renda Fixa Previdenciária">
+        <div class="simulator-top">
+          <div>
+            <h3>Simule o potencial de retorno</h3>
+            <p class="sub">Digite um aporte para visualizar uma projeção ilustrativa até o vencimento previsto.</p>
+          </div>
+          <div class="amount-field">
+            <label>Valor do aporte</label>
+            <div class="amount-input-wrap"><span class="amount-prefix">R$</span><input class="amount-input" inputmode="decimal" value="1.000"></div>
+          </div>
+        </div>
+        <div class="sim-kpis">
+          <div class="sim-kpi"><span>Taxa prevista</span><strong>32% a.a.</strong></div>
+          <div class="sim-kpi"><span>Prazo até o vencimento</span><strong class="term-output">···</strong></div>
+          <div class="sim-kpi"><span>Potencial bruto no prazo</span><strong class="future-output">···</strong></div>
+        </div>
+        <div class="chart"><svg viewBox="0 0 900 285" preserveAspectRatio="none"></svg></div>
+        <div class="sim-note">Simulação ilustrativa com capitalização anual composta até o vencimento formal. Não considera impostos, eventual improcedência dos processos, alterações de cronograma ou características específicas dos fluxos. CDI de referência do mockup: 14,90% a.a., substituir pelo parâmetro oficial da campanha.</div>
+        <div class="sim-actions"><a class="btn btn-primary btn-large" href="#">Investir nesta oportunidade</a><a class="btn btn-outline btn-large" href="#">Ver lâmina</a></div>
+      </div>
+    </article>
+
+    <!-- ALOÉS -->
+    <article class="product" id="aloes">
+      <div class="product-header">
+        <div class="kicker">04 · Operação Aloés</div>
+        <h2>Crédito reconhecido. Estratégia focada na recuperação.</h2>
+        <p>Uma operação com trânsito em julgado, aval dos sócios, patrimônio mapeado e preferência da GCB no recebimento.</p>
+      </div>
+
+      <div class="video-wrap"><div class="video"><small>Vídeo da lâmina · Operação Aloés</small></div></div>
+
+      <div class="metrics">
+        <div class="metric"><span>Rentabilidade prevista</span><strong>34% a.a.</strong></div>
+        <div class="metric"><span>Vencimento previsto</span><strong>08/06/2030</strong></div>
+        <div class="metric"><span>Nível de garantia</span><strong>Consultar no app</strong></div>
+      </div>
+
+      <div class="product-actions">
+        <a class="btn btn-dark btn-large" href="#aloes-simulador">Simular meu retorno</a>
+        <a class="btn btn-outline btn-large" href="#">Ver lâmina</a>
+      </div>
+
+      <div class="story">
+        <div class="story-card invest">
+          <h3>O que você está investindo?</h3>
+          <p>Uma operação estruturada sobre parte de um crédito judicial com trânsito em julgado, em fase de cumprimento de sentença, com cobrança também direcionada aos sócios avalistas.</p>
+        </div>
+
+        <div class="story-card thesis">
+          <h3>O que sustenta a tese?</h3>
+          <p>A estratégia combina acompanhamento jurídico especializado, busca patrimonial e uma estrutura de preferência no recebimento da GCB.</p>
+          <div class="evidence-grid">
+            <div class="evidence"><strong>+R$ 113 mi</strong><span>em bens mapeados na busca patrimonial.</span></div>
+            <div class="evidence"><strong>+R$ 47 mi</strong><span>em ativos já arrestados judicialmente.</span></div>
+            <div class="evidence"><strong>Preferência</strong><span>valores obtidos na execução são direcionados primeiro à quitação do crédito da GCB, conforme a estrutura.</span></div>
+          </div>
+        </div>
+
+        <div class="story-card diff">
+          <h3>Diferencial da operação</h3>
+          <p><strong>Trânsito em julgado, aval dos sócios e Cash Sweep.</strong> A cobrança não fica restrita à situação financeira da companhia operacional, e os valores recuperados podem ser repassados conforme as liquidações acontecem.</p>
+        </div>
+      </div>
+
+      <div class="simulator" id="aloes-simulador" data-rate="34" data-maturity="2030-06-08" data-product="Operação Aloés">
+        <div class="simulator-top">
+          <div>
+            <h3>Simule o potencial de retorno</h3>
+            <p class="sub">Altere o valor do aporte e acompanhe a curva ilustrativa até o vencimento previsto.</p>
+          </div>
+          <div class="amount-field">
+            <label>Valor do aporte</label>
+            <div class="amount-input-wrap"><span class="amount-prefix">R$</span><input class="amount-input" inputmode="decimal" value="1.000"></div>
+          </div>
+        </div>
+        <div class="sim-kpis">
+          <div class="sim-kpi"><span>Taxa prevista</span><strong>34% a.a.</strong></div>
+          <div class="sim-kpi"><span>Prazo até o vencimento</span><strong class="term-output">···</strong></div>
+          <div class="sim-kpi"><span>Potencial bruto no prazo</span><strong class="future-output">···</strong></div>
+        </div>
+        <div class="chart"><svg viewBox="0 0 900 285" preserveAspectRatio="none"></svg></div>
+        <div class="sim-note">Simulação ilustrativa com capitalização anual composta até o vencimento formal. Não considera impostos, Cash Sweep, amortizações, timing de recuperação ou demais condições da oferta. CDI de referência do mockup: 14,90% a.a., substituir pelo parâmetro oficial da campanha.</div>
+        <div class="sim-actions"><a class="btn btn-primary btn-large" href="#">Investir nesta oportunidade</a><a class="btn btn-outline btn-large" href="#">Ver lâmina</a></div>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<section class="why" id="por-que-judiciais">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="kicker">Por que ativos judiciais?</div>
+        <h2>Por que esses ativos funcionam diferente da Renda Fixa tradicional?</h2>
+      </div>
+      <p>Ativos judiciais possuem uma dinâmica própria de risco e retorno. Sua performance está relacionada à evolução e ao pagamento dos créditos que lastreiam cada operação, e não à valorização da Bolsa. Por isso, podem adicionar à carteira uma fonte diferente de potencial retorno.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><b>Outra fonte de retorno</b><p>O resultado está ligado aos créditos e à evolução das estruturas de cada operação.</p></div>
+      <div class="why-card"><b>Menor dependência do mercado tradicional</b><p>A tese não depende diretamente da valorização da Bolsa para buscar resultado.</p></div>
+      <div class="why-card"><b>Diversificação de risco</b><p>Uma classe com fatores de risco diferentes dos ativos tradicionais, que exige análise específica de cada tese.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="authority">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="kicker">Por que uma rentabilidade acima da média?</div>
+        <h2>High Yield não é ignorar o risco. É saber onde ele está.</h2>
+      </div>
+      <p>Cada operação tem uma equação diferente. A análise da GCB considera natureza do crédito, estágio processual, critérios de elegibilidade, potencial de recuperação, garantias e estrutura de pagamento antes de disponibilizar uma tese aos investidores.</p>
+    </div>
+    <div class="authority-grid">
+      <div class="authority-card"><strong>+75</strong><span>créditos judiciais adquiridos</span></div>
+      <div class="authority-card"><strong>+30</strong><span>créditos já liquidados</span></div>
+      <div class="authority-card"><strong>4 anos</strong><span>de atuação especializada em recebíveis judiciais</span></div>
+      <div class="authority-card"><strong>Curadoria</strong><span>análise, seleção e acompanhamento das operações</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="container">
+    <h2>Compare as teses antes de escolher onde investir.</h2>
+    <p>Durante a Semana do Cliente, conheça as estruturas, entenda os riscos e simule o potencial retorno das oportunidades disponíveis até 15/09.</p>
+    <a class="btn btn-dark btn-large" href="#pre-rpv-simulador">Simular meu retorno</a>
+    <div class="disclaimer">Rentabilidades previstas não representam garantia de retorno. Os resultados efetivos podem ser diferentes das simulações. Consulte as informações essenciais e os fatores de risco de cada oferta antes de investir.</div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const START = new Date('2026-09-09T12:00:00');
+  const CDI = 14.90;
+  const COLOR_OP = '#88BC6C';   /* --green: curva da operação */
+  const COLOR_CDI = '#A29C62';  /* --khaki: curva de referência CDI */
+  const COLOR_AXIS = '#F7F5EE'; /* --cream: eixos e rótulos sobre fundo escuro */
+
+  function parseBRL(raw){
+    let s = String(raw || '').replace(/[^\d,.-]/g,'').trim();
+    if(!s) return 0;
+    if(s.includes(',')){
+      s = s.replace(/\./g,'').replace(',','.');
+    }else{
+      const parts = s.split('.');
+      if(parts.length > 1 && parts[parts.length-1].length === 3) s = parts.join('');
+    }
+    const n = parseFloat(s);
+    return isFinite(n) ? n : 0;
+  }
+
+  function formatBRL(n){
+    return new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:2}).format(n);
+  }
+
+  function formatInput(n){
+    return new Intl.NumberFormat('pt-BR',{maximumFractionDigits:0}).format(n);
+  }
+
+  function yearsBetween(a,b){
+    return Math.max(0,(b-a)/(365.2425*24*60*60*1000));
+  }
+
+  function termLabel(years){
+    const totalMonths = Math.round(years*12);
+    const y = Math.floor(totalMonths/12);
+    const m = totalMonths%12;
+    if(y && m) return `${y} anos e ${m} meses`;
+    if(y) return `${y} ${y===1?'ano':'anos'}`;
+    return `${m} ${m===1?'mês':'meses'}`;
+  }
+
+  function drawChart(svg, amount, rate, years){
+    const W=900,H=285,L=62,R=28,T=28,B=48;
+    const steps=36;
+    const op=[],cdi=[];
+    for(let i=0;i<=steps;i++){
+      const t=years*(i/steps);
+      op.push(amount*Math.pow(1+rate/100,t));
+      cdi.push(amount*Math.pow(1+CDI/100,t));
+    }
+    const max=Math.max(...op,...cdi,amount)*1.08;
+    const min=amount*.94;
+    const x=i=>L+(W-L-R)*(i/steps);
+    const y=v=>T+(H-T-B)*(1-(v-min)/(max-min));
+    const path=arr=>arr.map((v,i)=>(i?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1)).join(' ');
+    const opEnd=op[op.length-1], cdiEnd=cdi[cdi.length-1];
+
+    svg.innerHTML = `
+      <line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="${COLOR_AXIS}" stroke-width="1.6" opacity=".22"/>
+      <line x1="${L}" y1="${T}" x2="${L}" y2="${H-B}" stroke="${COLOR_AXIS}" stroke-width="1.6" opacity=".22"/>
+      <path d="${path(op)}" fill="none" stroke="${COLOR_OP}" stroke-width="5" stroke-linecap="round"/>
+      <path d="${path(cdi)}" fill="none" stroke="${COLOR_CDI}" stroke-width="3" stroke-linecap="round" opacity=".6"/>
+      <circle cx="${x(steps)}" cy="${y(opEnd)}" r="5.5" fill="${COLOR_OP}"/>
+      <circle cx="${x(steps)}" cy="${y(cdiEnd)}" r="4.5" fill="${COLOR_CDI}"/>
+      <text x="${L}" y="${H-17}" class="chart-label" fill="${COLOR_AXIS}" opacity=".7">HOJE</text>
+      <text x="${W-R-70}" y="${H-17}" class="chart-label" fill="${COLOR_AXIS}" opacity=".7">VENCIMENTO</text>
+      <text x="${W-R-116}" y="${Math.max(18,y(opEnd)-12)}" class="chart-label" fill="${COLOR_OP}">OPERAÇÃO ${rate.toFixed(0)}% a.a.</text>
+      <text x="${W-R-94}" y="${Math.min(H-B-8,y(cdiEnd)+22)}" class="chart-label" fill="${COLOR_CDI}">CDI ${CDI.toFixed(2).replace('.',',')}%</text>
+    `;
+  }
+
+  document.querySelectorAll('.simulator').forEach(sim=>{
+    const rate=parseFloat(sim.dataset.rate);
+    const maturity=new Date(sim.dataset.maturity+'T12:00:00');
+    const years=yearsBetween(START,maturity);
+    const input=sim.querySelector('.amount-input');
+    const future=sim.querySelector('.future-output');
+    const term=sim.querySelector('.term-output');
+    const svg=sim.querySelector('svg');
+
+    term.textContent=termLabel(years);
+
+    function update(){
+      let amount=parseBRL(input.value);
+      if(amount<1000) amount=1000;
+      const fv=amount*Math.pow(1+rate/100,years);
+      future.textContent=formatBRL(fv);
+      drawChart(svg,amount,rate,years);
+    }
+
+    input.addEventListener('focus',()=>{ input.select(); });
+    input.addEventListener('input',update);
+    input.addEventListener('blur',()=>{
+      let amount=parseBRL(input.value);
+      if(amount<1000) amount=1000;
+      input.value=formatInput(amount);
+      update();
+    });
+    update();
+  });
+})();
+</script>
+
+</body>
+</html>
