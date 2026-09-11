@@ -18,207 +18,209 @@
 @font-face{font-family:'Leksikal Flare';src:url('/fonts/LeksikalFlare-Regular.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:'Leksikal Flare';src:url('/fonts/LeksikalFlare-Bold.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap}
 :root{
-  /* Design System GCB · v1.0 · seção 3.1 e 4 — tokens copiados sem alteração */
-  --olive-950:#25230F; --olive-900:#312F14; --olive-800:#403E27;
-  --khaki:#A29C62; --khaki-dim:#6B6748;
-  --green:#88BC6C; --green-soft:#9DCC84; --green-deep:#6FA253;
-  --cream:#F7F5EE; --cream-dim:#EFEBDD;
-  --ink:#212121; --ink-soft:#55523A; --card:#FFFFFF;
-  --red:#C04A28; --red-bg:#FEF0EB; --amber:#C07428; --amber-bg:#FEF3E2;
-  --head:'Leksikal Flare','Host Grotesk',Georgia,serif;
-  --body:'Host Grotesk','Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  --radius:18px;
-  --radius-sm:4px; --radius-md:8px; --radius-lg:12px; --radius-xl:16px; --radius-2xl:24px; --radius-full:9999px;
-  --shadow:0 10px 34px rgba(49,47,20,.08), 0 2px 8px rgba(49,47,20,.05);
-  --line:rgba(49,47,20,.13);
+  /* DESIGN-wise.md — tokens copiados sem alteração */
+  --primary:#9fe870; --on-primary:#0e0f0c; --primary-active:#cdffad; --primary-neutral:#c5edab; --primary-pale:#e2f6d5;
+  --ink:#0e0f0c; --ink-deep:#163300; --ink-body:#454745; --mute:#868685;
+  --canvas:#ffffff; --canvas-soft:#e8ebe6;
+  --positive:#2ead4b; --positive-deep:#054d28;
+  --warning:#ffd11a; --warning-deep:#b86700; --warning-content:#4a3b1c;
+  --negative:#d03238; --negative-deep:#a72027; --negative-darkest:#a7000d; --negative-bg:#320707;
+  --accent-orange:#ffc091; --accent-cyan:#38c8ff;
+
+  /* verde GCB — usado como substituto do --ink em superfícies de marca (header e box de diferencial) */
+  --gcb-green:#312f14;
+
+  /* type families — fontes de marca GCB (mantidas da versão anterior) no lugar dos substitutos Manrope/Inter */
+  --display:'Leksikal Flare','Host Grotesk',Georgia,serif;
+  --sans:'Host Grotesk','Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+
+  /* rounded — escala exata do token, sem inventar valores intermediários */
+  --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:24px; --r-pill:9999px;
+
+  /* spacing — base 4px */
+  --sp-xxs:2px; --sp-xs:4px; --sp-sm:8px; --sp-md:12px; --sp-lg:16px; --sp-xl:24px; --sp-2xl:32px; --sp-3xl:48px;
+
+  --hairline:rgba(14,15,12,.14);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--cream);color:var(--ink);font-family:var(--body);line-height:1.55;-webkit-font-smoothing:antialiased}
+body{background:var(--canvas-soft);color:var(--ink-body);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
 button,input{font:inherit}
-.container{width:min(1180px,calc(100% - 40px));margin:auto}
-section{padding:84px 0}
+.container{width:min(1200px,calc(100% - 48px));margin:auto}
 
-/* tipografia base — Design System seção 3.2 e 4 */
-h1,h2,h3{font-family:var(--head);font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.05}
-p{font-size:14px;line-height:1.6;color:var(--ink-soft)}
-.surface-dark p{color:var(--khaki)}
+/* tipografia — Design System "Hierarchy" */
+h1,h2{font-family:var(--display);font-weight:900;color:var(--ink);line-height:1.05;letter-spacing:0}
+h3{font-family:var(--sans);font-weight:600;color:var(--ink);line-height:1.2;font-size:24px}
+p{font-family:var(--sans);font-size:16px;line-height:24px;color:var(--ink-body)}
 
-.kicker{display:inline-flex;gap:9px;align-items:center;font-size:11px;font-weight:700;
-  text-transform:uppercase;letter-spacing:.18em;color:var(--green-deep)}
-.kicker:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green-deep)}
-.surface-dark .kicker{color:var(--green)}
-.surface-dark .kicker:before{background:var(--green)}
+/* {typography.caption} 12/400, usado como kicker/eyebrow */
+.kicker{display:block;font-family:var(--sans);font-size:12px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.12em;color:var(--ink-deep);margin-bottom:var(--sp-sm)}
+.surface-dark .kicker{color:var(--primary)}
 
-/* botão — verbo decisivo, nunca "clique aqui" (Design System seção 2) */
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:58px;padding:0 30px;
-  border-radius:var(--radius-full);font-weight:700;font-size:1rem;letter-spacing:.02em;
-  border:1px solid transparent;transition:transform .2s ease;cursor:pointer}
+/* {components.button-primary/secondary/tertiary} — rounded.xl 24px é não negociável, nunca pill total */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-sm);
+  min-height:48px;padding:var(--sp-md) var(--sp-xl);border-radius:var(--r-xl);
+  font-family:var(--sans);font-size:16px;font-weight:600;line-height:24px;
+  border:1px solid transparent;cursor:pointer;transition:transform .15s ease}
 .btn:hover{transform:translateY(-2px)}
-.btn-primary{background:var(--green);color:var(--olive-950);box-shadow:0 12px 30px rgba(136,188,108,.28)}
-.btn-dark{background:var(--olive-900);color:var(--cream);box-shadow:0 12px 26px rgba(49,47,20,.2)}
-.btn-outline{background:var(--card);color:var(--olive-900);border-color:var(--line)}
-.btn-large{min-height:64px;padding:0 36px;font-size:1.02rem}
+.btn-primary{background:var(--primary);color:var(--on-primary)}
+.btn-secondary{background:var(--canvas-soft);color:var(--ink)}
+.btn-tertiary{background:var(--canvas);color:var(--ink);border-color:var(--ink)}
+.btn-tertiary.on-dark{background:transparent;color:var(--canvas-soft);border-color:rgba(255,255,255,.4)}
+.btn-block{width:100%}
 
-/* HERO */
-.hero{position:relative;overflow:hidden;background:
-  radial-gradient(circle at 80% 15%,rgba(136,188,108,.16),transparent 32%),
-  linear-gradient(150deg,var(--olive-950) 0%,var(--olive-900) 64%,var(--olive-800) 100%);
-  color:var(--cream);padding:22px 0 56px}
-.hero-shards{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
-.hero>.container{position:relative;z-index:1}
-.hero nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px}
-.brand{font-family:var(--head);font-weight:700;letter-spacing:.06em;color:var(--cream)}
-.brand img{display:block;height:26px;width:auto}
-.date-pill{padding:10px 16px;border-radius:var(--radius-full);border:1px solid rgba(255,255,255,.18);
-  color:var(--khaki);font-size:.86rem;font-weight:700}
-.campaign-title{font-family:var(--body);font-size:clamp(1rem,2vw,1.3rem);font-weight:700;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:22px}
-.hero h1{font-size:clamp(2.6rem,5.6vw,5rem);line-height:.98;color:var(--cream);max-width:950px;margin:0 0 24px}
-.hero h1 span{color:var(--green)}
-.hero-copy{font-size:1.1rem;line-height:1.6;max-width:740px;color:var(--khaki);margin:0 0 26px}
-.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
-.hero-meta span{padding:9px 14px;border-radius:var(--radius-full);background:var(--olive-800);
-  border:1px solid rgba(255,255,255,.08);color:#E9E6D4;font-size:.82rem;font-weight:700;
-  text-transform:uppercase;letter-spacing:.05em}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-.hero-products{margin-top:44px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12)}
-.hero-products-label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
-  color:var(--khaki-dim);margin-bottom:13px}
-.hero-product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.hero-product-card{position:relative;padding:18px 18px 17px;border-radius:var(--radius-xl);
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
-  transition:background .2s ease,color .2s ease,transform .2s ease;overflow:hidden}
-.hero-product-card:before{content:"";position:absolute;inset:auto -20px -45px auto;width:90px;height:90px;
-  border-radius:50%;background:rgba(136,188,108,.14)}
-.hero-product-card:hover{background:var(--green);color:var(--olive-950);transform:translateY(-3px);border-color:var(--green)}
-.hero-product-card strong{display:block;font-family:var(--head);font-size:1rem;line-height:1.2;margin-bottom:5px}
-.hero-product-card span{font-size:.82rem;color:var(--khaki)}
-.hero-product-card:hover span{color:rgba(37,35,15,.7)}
+/* {components.badge-positive} — usado para todo dado de rentabilidade, nunca o verde de marca */
+.badge-positive{display:inline-flex;align-items:center;font-family:var(--sans);font-size:14px;font-weight:600;
+  line-height:20px;color:var(--positive-deep);background:var(--primary-pale);
+  padding:var(--sp-xs) var(--sp-md);border-radius:var(--r-pill)}
 
-/* PRODUCTS */
-.products{background:var(--cream);padding-top:20px}
-.product{padding:72px 0 88px;border-bottom:1px solid var(--line);scroll-margin-top:22px}
-.product-header{text-align:center;max-width:900px;margin:0 auto 30px}
-.product-header h2{font-size:clamp(2.1rem,4.4vw,3.6rem);margin:12px 0 12px}
-.product-header p{max-width:730px;margin:0 auto;font-size:1.02rem}
-.video-wrap{max-width:980px;margin:0 auto}
-.video{aspect-ratio:16/9;border-radius:var(--radius-2xl);
-  background:linear-gradient(150deg,var(--green-soft),var(--green));
-  display:grid;place-items:center;position:relative;border:1px solid var(--line);box-shadow:var(--shadow)}
-.video:after{content:"▶";width:84px;height:84px;border-radius:50%;display:grid;place-items:center;
-  background:var(--olive-950);color:var(--cream);font-size:1.6rem;box-shadow:0 16px 32px rgba(37,35,15,.28)}
-.video small{position:absolute;bottom:22px;left:24px;font-weight:700;color:var(--olive-950)}
-.metrics{max-width:980px;margin:18px auto 14px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.metric{padding:18px 20px;border-radius:var(--radius-xl);background:var(--cream-dim);border:1px solid var(--line)}
-.metric span{display:block;font-size:.72rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
-.metric strong{font-family:var(--head);font-size:1.16rem;color:var(--ink)}
-.product-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:18px 0 40px}
-.story{max-width:900px;margin:0 auto;display:grid;gap:14px}
-.story-card{padding:28px 30px;border-radius:var(--radius-xl);border:1px solid var(--line)}
-.story-card h3{font-size:1.1rem;margin:0 0 10px}
-.story-card p{margin:0;font-size:.97rem}
-.story-card.invest{background:var(--card);box-shadow:var(--shadow)}
-.story-card.thesis{background:var(--cream-dim)}
-.story-card.diff{background:var(--olive-900);border-color:var(--olive-900);color:var(--cream)}
-.story-card.diff h3{color:var(--green)}
-.story-card.diff p{color:var(--khaki)}
-.evidence-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 4px}
-.evidence{padding:17px;border-radius:var(--radius-lg);background:var(--card);border:1px solid var(--line)}
-.evidence strong{display:block;font-family:var(--head);font-size:1.6rem;letter-spacing:-.02em;color:var(--ink);line-height:1}
-.evidence span{display:block;margin-top:7px;font-size:.78rem;color:var(--ink-soft)}
-.story-card.diff .evidence{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)}
-.story-card.diff .evidence strong{color:var(--green)}
-.story-card.diff .evidence span{color:var(--khaki)}
+/* {components.button-icon-circular} */
+.icon-circular{width:64px;height:64px;border-radius:var(--r-pill);background:var(--canvas);
+  color:var(--ink);display:grid;place-items:center;font-size:20px}
 
-/* RPV explainer */
-.rpv-explainer{max-width:900px;margin:18px auto 0;padding:28px;border-radius:var(--radius-2xl);
-  background:var(--cream-dim);border:1px solid var(--line)}
-.rpv-explainer h3{margin:0 0 8px}
-.rpv-explainer>p{margin:0 0 20px}
-.compare-rpv{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.compare-box{padding:22px;border-radius:var(--radius-xl);border:1px solid var(--line);background:var(--card)}
-.compare-box.accent{background:rgba(136,188,108,.16);border-color:rgba(111,162,83,.3)}
-.compare-box b{display:block;margin-bottom:8px;color:var(--ink);font-family:var(--head);font-size:1.02rem}
-.compare-box p{margin:0;font-size:.93rem}
+/* HERO — {components.hero-band-dark}: bg ink, headline em primary (verde sobre quase-preto) */
+.hero{background:var(--gcb-green);color:var(--canvas-soft);padding:calc(var(--sp-3xl) * 1.5) 0 var(--sp-3xl)}
+.hero nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--sp-3xl)}
+.brand img{display:block;height:28px;width:auto}
+.date-pill{padding:var(--sp-xs) var(--sp-md);border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.22);
+  color:var(--canvas-soft);font-family:var(--sans);font-size:14px;font-weight:600}
+.hero .kicker{color:var(--primary);margin-bottom:var(--sp-lg)}
+.hero h1{font-size:clamp(2.75rem,7vw,6.5rem);line-height:.98;color:var(--primary);max-width:960px;margin:0 0 var(--sp-xl)}
+.hero-copy{font-family:var(--sans);font-size:20px;line-height:30px;max-width:720px;
+  color:rgba(232,235,230,.82);margin:0 0 var(--sp-xl)}
+.hero-meta{display:flex;gap:var(--sp-sm);flex-wrap:wrap;margin-bottom:var(--sp-2xl)}
+.hero-meta span{padding:var(--sp-xs) var(--sp-md);border-radius:var(--r-pill);background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.16);color:var(--canvas-soft);font-family:var(--sans);font-size:14px;font-weight:600}
+.hero-actions{display:flex;gap:var(--sp-md);flex-wrap:wrap}
+.hero-products{margin-top:var(--sp-3xl);padding-top:var(--sp-xl);border-top:1px solid rgba(255,255,255,.14)}
+.hero-products-label{font-family:var(--sans);font-size:12px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.12em;color:var(--mute);margin-bottom:var(--sp-md)}
+.hero-product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-md)}
+.hero-product-card{padding:var(--sp-lg);border-radius:var(--r-lg);background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.14);transition:background .15s ease,border-color .15s ease}
+.hero-product-card:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.3)}
+.hero-product-card strong{display:block;font-family:var(--sans);font-size:16px;font-weight:600;
+  color:var(--canvas);line-height:1.2;margin-bottom:var(--sp-sm)}
 
-/* SIMULATOR — superfície escura: verde usado com parcimônia, só no accent (Design System seção 1) */
-.simulator{max-width:980px;margin:34px auto 0;background:var(--olive-950);border-radius:var(--radius-2xl);
-  padding:32px;color:var(--cream);box-shadow:var(--shadow)}
-.simulator-top{display:grid;grid-template-columns:1fr .8fr;gap:24px;align-items:end}
-.simulator h3{font-size:1.3rem;margin:0 0 6px;color:var(--cream)}
-.simulator .sub{margin:0;color:var(--khaki);font-size:.93rem}
-.amount-field label{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;
-  font-weight:700;margin-bottom:7px;color:var(--khaki)}
-.amount-input-wrap{display:flex;align-items:center;background:var(--cream);border-radius:var(--radius-lg);
-  border:1px solid rgba(255,255,255,.12);overflow:hidden}
-.amount-prefix{padding:0 0 0 16px;font-weight:700;color:var(--olive-900)}
-.amount-input{width:100%;border:0;outline:0;padding:15px 16px;font-weight:700;font-size:1.15rem;
-  color:var(--olive-900);background:transparent}
-.sim-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 16px}
-.sim-kpi{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-lg);padding:16px}
-.sim-kpi span{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--khaki-dim);margin-bottom:5px}
-.sim-kpi strong{font-family:var(--head);font-size:1.05rem;color:var(--cream)}
-.chart{height:285px;background:rgba(255,255,255,.04);border-radius:var(--radius-xl);border:1px solid rgba(255,255,255,.1);overflow:hidden}
-.chart svg{display:block;width:100%;height:100%}
-.chart-label{font-size:11px;font-family:var(--body);font-weight:700}
-.sim-note{font-size:.74rem;line-height:1.5;margin:12px 2px 0;color:var(--khaki-dim)}
-.sim-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:20px}
+/* PRODUCTS — {elevation.Level 2}: card branco sobre canvas sage, o contraste de superfície É a elevação */
+.products{background:var(--canvas-soft);padding:var(--sp-3xl) 0}
+.product{background:var(--canvas);border-radius:var(--r-xl);
+  padding:var(--sp-3xl) clamp(var(--sp-xl),5vw,var(--sp-3xl));margin-bottom:var(--sp-2xl);scroll-margin-top:24px}
+.product:last-child{margin-bottom:0}
 
-/* EDUCATIONAL / AUTHORITY */
-.why{background:var(--cream-dim)}
-.section-head{display:grid;grid-template-columns:.86fr 1.14fr;gap:48px;align-items:end;margin-bottom:38px}
-.section-head h2{font-size:clamp(2rem,3.6vw,3.2rem);margin:12px 0 0}
-.section-head p{margin:0;font-size:1rem}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.why-card{padding:24px;border-radius:var(--radius-xl);background:var(--card);border:1px solid var(--line)}
-.why-card b{display:block;margin-bottom:7px;color:var(--ink);font-family:var(--head);font-size:.98rem}
-.why-card p{margin:0;font-size:.94rem}
-.authority{background:var(--olive-950);color:var(--cream)}
-.authority .kicker,.authority .section-head h2{color:var(--cream)}
-.authority .section-head h2{color:#F4F1E4}
-.authority .section-head p{color:var(--khaki)}
-.authority-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.authority-card{padding:24px;border-radius:var(--radius-xl);border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.045)}
-.authority-card strong{display:block;font-family:var(--head);color:var(--green);font-size:1.9rem;letter-spacing:-.02em;margin-bottom:6px}
-.authority-card span{font-size:.9rem;color:var(--khaki)}
+.product-header{text-align:center;max-width:720px;margin:0 auto var(--sp-2xl)}
+.product-header h2{font-size:40px;line-height:1.05;margin:var(--sp-sm) 0 var(--sp-md)}
+.product-header p{max-width:620px;margin:0 auto}
 
-.final{background:var(--green);text-align:center}
-.final .container{max-width:860px}
-.final h2{font-size:clamp(2.2rem,4.2vw,3.8rem);color:var(--olive-950);margin:0 0 18px}
-.final p{margin:0 auto 28px;color:rgba(37,35,15,.72);max-width:720px}
-.disclaimer{font-size:.76rem;line-height:1.5;color:rgba(37,35,15,.64);margin-top:24px}
+/* corpo em 2 colunas: só o título acima fica centralizado */
+.product-body{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-2xl);align-items:start}
+.product-media{display:flex;flex-direction:column;gap:var(--sp-lg)}
+
+/* video — composto a partir de card-feature-green + button-icon-circular */
+.video{aspect-ratio:16/9;border-radius:var(--r-xl);background:var(--primary-pale);
+  display:grid;place-items:center;position:relative}
+.video small{position:absolute;bottom:var(--sp-lg);left:var(--sp-lg);font-family:var(--sans);
+  font-size:14px;font-weight:600;color:var(--ink)}
+
+/* {components.text-input}-style rows para métricas: hairline em ink, fundo canvas-soft */
+.metrics{display:flex;flex-direction:column;border-radius:var(--r-lg);overflow:hidden;background:var(--canvas-soft)}
+.metric{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-md);padding:var(--sp-md) var(--sp-lg)}
+.metric:not(:last-child){border-bottom:1px solid var(--hairline)}
+.metric span{font-family:var(--sans);font-size:12px;font-weight:400;color:var(--mute);
+  text-transform:uppercase;letter-spacing:.08em}
+.metric strong{font-family:var(--sans);font-size:16px;font-weight:600;color:var(--ink);text-align:right}
+.metric.rate strong{color:var(--positive-deep)}
+
+.product-actions{display:flex;gap:var(--sp-md);flex-wrap:wrap}
+.product-actions .btn{flex:1 1 auto}
+
+.story{display:flex;flex-direction:column;gap:var(--sp-md)}
+.story-card{padding:var(--sp-xl);border-radius:var(--r-xl)}
+.story-card h3{margin:0 0 var(--sp-sm)}
+.story-card p{margin:0;font-size:15px}
+/* {components.card-feature-sage} */
+.story-card.invest{background:var(--canvas-soft)}
+/* {components.card-feature-green} */
+.story-card.thesis{background:var(--primary-pale)}
+/* {components.card-feature-dark} — "usado para momentos promocionais": o diferencial de cada operação.
+   Fundo em verde GCB (marca) em vez do ink padrão do token, e ocupa a largura cheia do card do produto. */
+.story-card.diff{background:var(--gcb-green);color:var(--canvas-soft);margin-top:var(--sp-2xl)}
+.story-card.diff h3{color:var(--primary)}
+.story-card.diff p{color:rgba(232,235,230,.82)}
+
+.evidence-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:var(--sp-sm);margin:var(--sp-lg) 0 0}
+.evidence{padding:var(--sp-md);border-radius:var(--r-md);background:var(--canvas)}
+.evidence strong{display:block;font-family:var(--sans);font-size:24px;font-weight:600;color:var(--ink);line-height:1.1}
+.evidence span{display:block;margin-top:var(--sp-xs);font-size:12px;color:var(--ink-body)}
+.story-card.diff .evidence{background:rgba(255,255,255,.06)}
+.story-card.diff .evidence strong{color:var(--primary)}
+.story-card.diff .evidence span{color:rgba(232,235,230,.75)}
+
+/* RPV explainer — só no ativo 01, ocupa a largura cheia do card do produto */
+.rpv-explainer{margin-top:var(--sp-2xl);padding:var(--sp-xl);border-radius:var(--r-xl);background:var(--canvas-soft)}
+.rpv-explainer h3{margin:0 0 var(--sp-sm)}
+.rpv-explainer>p{margin:0 0 var(--sp-lg)}
+.compare-rpv{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-md)}
+.compare-box{padding:var(--sp-lg);border-radius:var(--r-lg);background:var(--canvas)}
+.compare-box.accent{background:var(--primary-pale)}
+.compare-box b{display:block;margin-bottom:var(--sp-sm);color:var(--ink);font-family:var(--sans);font-weight:600;font-size:16px}
+.compare-box p{margin:0;font-size:14px}
+
+/* EDUCATIONAL — {components.content-band}: fundo branco, cards sage por contraste */
+.why{background:var(--canvas);padding:var(--sp-3xl) 0}
+.section-head{display:grid;grid-template-columns:.86fr 1.14fr;gap:var(--sp-2xl);align-items:end;margin-bottom:var(--sp-2xl)}
+.section-head h2{font-size:40px;margin:var(--sp-sm) 0 0}
+.section-head p{margin:0}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-lg)}
+.why-card{padding:var(--sp-xl);border-radius:var(--r-xl);background:var(--canvas-soft)}
+.why-card b{display:block;margin-bottom:var(--sp-sm);color:var(--ink);font-family:var(--sans);font-weight:600;font-size:16px}
+.why-card p{margin:0;font-size:15px}
+
+/* AUTHORITY — {components.hero-band-dark} reaproveitado para o bloco de credibilidade */
+.authority{background:var(--ink);color:var(--canvas-soft);padding:var(--sp-3xl) 0}
+.authority .section-head h2{color:var(--canvas)}
+.authority .section-head p{color:rgba(232,235,230,.78)}
+.authority-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-md)}
+.authority-card{padding:var(--sp-xl);border-radius:var(--r-xl);background:rgba(255,255,255,.05)}
+.authority-card strong{display:block;font-family:var(--display);color:var(--primary);font-size:32px;
+  font-weight:600;letter-spacing:-.02em;margin-bottom:var(--sp-xs)}
+.authority-card span{font-size:14px;color:rgba(232,235,230,.75)}
+
+/* FINAL — CTA verde sempre sobre superfície neutra (sage), nunca sobre verde */
+.final{background:var(--canvas-soft);text-align:center;padding:var(--sp-3xl) 0}
+.final .container{max-width:820px}
+.final h2{font-size:clamp(2rem,4.2vw,3rem);color:var(--ink);margin:0 0 var(--sp-md)}
+.final p{margin:0 auto var(--sp-xl);color:var(--ink-body);max-width:640px}
+.disclaimer{font-family:var(--sans);font-size:12px;line-height:16px;color:var(--mute);margin-top:var(--sp-xl)}
 
 @media(max-width:900px){
   .hero-product-grid{grid-template-columns:1fr 1fr}
-  .section-head,.simulator-top{grid-template-columns:1fr}
+  .section-head,.product-body{grid-template-columns:1fr}
   .why-grid,.authority-grid{grid-template-columns:1fr 1fr}
+  .compare-rpv{grid-template-columns:1fr}
 }
 @media(max-width:700px){
-  .container{width:min(100% - 28px,1180px)}
-  .hero{padding-bottom:42px}
-  .hero nav{margin-bottom:36px}
-  .hero h1{font-size:2.5rem}
-  .hero-product-grid,.metrics,.sim-kpis,.compare-rpv,.evidence-grid,.why-grid,.authority-grid{grid-template-columns:1fr}
-  .video{border-radius:var(--radius-xl)}
-  .simulator{padding:22px 18px}
-  .btn,.btn-large{width:100%}
+  .hero{padding-top:var(--sp-3xl)}
+  .hero nav{margin-bottom:var(--sp-2xl)}
+  .hero-product-grid,.why-grid,.authority-grid{grid-template-columns:1fr}
+  .product{padding:var(--sp-2xl) var(--sp-lg)}
+  .btn{width:100%}
 }
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <canvas class="hero-shards" id="heroShards" aria-hidden="true"></canvas>
+<header class="hero surface-dark">
   <div class="container">
     <nav>
-      <div class="brand"><img src="/logo-branco.png" alt="GCB Investimentos"></div>
+      <div class="brand"><img src="data:image/png;base64,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" alt="GCB Investimentos"></div>
       <div class="date-pill">Condições até 15/09</div>
     </nav>
 
-    <div class="campaign-title">Semana do Cliente GCB</div>
-    <h1>High Yield em <span>condições exclusivas.</span></h1>
+    <span class="kicker">Semana do Cliente GCB</span>
+    <h1>High Yield em condições exclusivas.</h1>
     <p class="hero-copy">Até <strong>34% ao ano de rentabilidade máxima prevista</strong> em uma seleção de ativos judiciais da GCB.</p>
 
     <div class="hero-meta">
@@ -228,16 +230,16 @@ p{font-size:14px;line-height:1.6;color:var(--ink-soft)}
     </div>
 
     <div class="hero-actions">
-      <a class="btn btn-primary btn-large" href="#pre-rpv-simulador">Simular meu retorno</a>
+      <a class="btn btn-primary" href="#oportunidades">Ver oportunidades</a>
     </div>
 
     <div class="hero-products">
       <div class="hero-products-label">Explore as oportunidades</div>
       <div class="hero-product-grid">
-        <a class="hero-product-card" href="#pre-rpv"><strong>Cesta Pré-RPV</strong><span>25% a.a. prevista</span></a>
-        <a class="hero-product-card" href="#trabalhista"><strong>Créditos Trabalhistas</strong><span>32% a.a. prevista</span></a>
-        <a class="hero-product-card" href="#previdenciaria"><strong>RF Previdenciária</strong><span>32% a.a. prevista</span></a>
-        <a class="hero-product-card" href="#aloes"><strong>Operação Aloés</strong><span>34% a.a. prevista</span></a>
+        <a class="hero-product-card" href="#pre-rpv"><strong>Cesta Pré-RPV</strong><span class="badge-positive">25% a.a.</span></a>
+        <a class="hero-product-card" href="#trabalhista"><strong>Créditos Trabalhistas</strong><span class="badge-positive">32% a.a.</span></a>
+        <a class="hero-product-card" href="#previdenciaria"><strong>RF Previdenciária</strong><span class="badge-positive">32% a.a.</span></a>
+        <a class="hero-product-card" href="#aloes"><strong>Operação Aloés</strong><span class="badge-positive">34% a.a.</span></a>
       </div>
     </div>
   </div>
@@ -249,44 +251,46 @@ p{font-size:14px;line-height:1.6;color:var(--ink-soft)}
     <!-- PRÉ-RPV -->
     <article class="product" id="pre-rpv">
       <div class="product-header">
-        <div class="kicker">01 · Cesta Pré-RPV</div>
+        <span class="kicker">01 · Cesta Pré-RPV</span>
         <h2>Pré-RPVs com taxa especial de 25% a.a. prevista.</h2>
         <p>Uma estrutura de recebíveis judiciais de menor monta, com prazo formal mais curto e possibilidade de repasses ao longo da vida da operação.</p>
       </div>
 
-      <div class="video-wrap"><div class="video"><small>Vídeo da lâmina · Cesta Pré-RPV</small></div></div>
-
-      <div class="metrics">
-        <div class="metric"><span>Rentabilidade prevista</span><strong>25% a.a.</strong></div>
-        <div class="metric"><span>Pagamento previsto do lastro</span><strong>20/11/2027</strong></div>
-        <div class="metric"><span>Nível de garantia</span><strong>Consultar no app</strong></div>
-      </div>
-
-      <div class="product-actions">
-        <a class="btn btn-dark btn-large" href="#pre-rpv-simulador">Simular meu retorno</a>
-        <a class="btn btn-outline btn-large" href="#">Ver lâmina</a>
-      </div>
-
-      <div class="story">
-        <div class="story-card invest">
-          <h3>O que você está investindo?</h3>
-          <p>A GCB adquire direitos de valores a receber da Justiça antes do pagamento oficial. Essas operações são estruturadas e disponibilizadas para investidores com prazos mais curtos. O retorno vem da antecipação desses pagamentos, já reconhecidos, com deságio.</p>
-        </div>
-
-        <div class="story-card thesis">
-          <h3>O que sustenta a tese?</h3>
-          <p>Os créditos passam por diligência prévia e a cessão é formalizada e protocolada nos autos. A carteira é pulverizada entre diferentes Pré-RPVs e recebe acompanhamento jurídico ao longo da operação.</p>
-          <div class="evidence-grid">
-            <div class="evidence"><strong>5-10</strong><span>Pré-RPVs por carteira, segundo a atualização da operação.</span></div>
-            <div class="evidence"><strong>Cash Sweep</strong><span>Possibilidade de repasses conforme os recebimentos acontecem.</span></div>
-            <div class="evidence"><strong>20/11/27</strong><span>Pagamento previsto do lastro da oferta.</span></div>
+      <div class="product-body">
+        <div class="product-media">
+          <div class="video"><div class="icon-circular">▶</div><small>Vídeo da lâmina · Cesta Pré-RPV</small></div>
+          <div class="metrics">
+            <div class="metric rate"><span>Rentabilidade prevista</span><strong>25% a.a.</strong></div>
+            <div class="metric"><span>Pagamento previsto do lastro</span><strong>20/11/2027</strong></div>
+            <div class="metric"><span>Nível de garantia</span><strong>Consultar no app</strong></div>
+          </div>
+          <div class="product-actions">
+            <a class="btn btn-primary" href="#">Investir nesta oportunidade</a>
+            <a class="btn btn-secondary" href="#">Ver lâmina</a>
           </div>
         </div>
 
-        <div class="story-card diff">
-          <h3>Diferencial da operação</h3>
-          <p><strong>Uma estrutura que pode devolver recursos antes do vencimento final.</strong> Conforme os RPVs da carteira são expedidos e pagos, o Cash Sweep permite que os valores sejam repassados ao longo da vida da operação, de acordo com os eventos de liquidação.</p>
+        <div class="story">
+          <div class="story-card invest">
+            <h3>O que você está investindo?</h3>
+            <p>A GCB adquire direitos de valores a receber da Justiça antes do pagamento oficial. Essas operações são estruturadas e disponibilizadas para investidores com prazos mais curtos. O retorno vem da antecipação desses pagamentos, já reconhecidos, com deságio.</p>
+          </div>
+
+          <div class="story-card thesis">
+            <h3>O que sustenta a tese?</h3>
+            <p>Os créditos passam por diligência prévia e a cessão é formalizada e protocolada nos autos. A carteira é pulverizada entre diferentes Pré-RPVs e recebe acompanhamento jurídico ao longo da operação.</p>
+            <div class="evidence-grid">
+              <div class="evidence"><strong>5-10</strong><span>Pré-RPVs por carteira, segundo a atualização da operação.</span></div>
+              <div class="evidence"><strong>Cash Sweep</strong><span>Possibilidade de repasses conforme os recebimentos acontecem.</span></div>
+              <div class="evidence"><strong>20/11/27</strong><span>Pagamento previsto do lastro da oferta.</span></div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="story-card diff">
+        <h3>Diferencial da operação</h3>
+        <p><strong>Uma estrutura que pode devolver recursos antes do vencimento final.</strong> Conforme os RPVs da carteira são expedidos e pagos, o Cash Sweep permite que os valores sejam repassados ao longo da vida da operação, de acordo com os eventos de liquidação.</p>
       </div>
 
       <div class="rpv-explainer">
@@ -303,221 +307,143 @@ p{font-size:14px;line-height:1.6;color:var(--ink-soft)}
           </div>
         </div>
       </div>
-
-      <div class="simulator" id="pre-rpv-simulador" data-rate="25" data-maturity="2027-11-20" data-product="Cesta Pré-RPV">
-        <div class="simulator-top">
-          <div>
-            <h3>Simule o potencial de retorno</h3>
-            <p class="sub">Digite um valor para visualizar uma projeção ilustrativa até o pagamento previsto do lastro.</p>
-          </div>
-          <div class="amount-field">
-            <label>Valor do aporte</label>
-            <div class="amount-input-wrap"><span class="amount-prefix">R$</span><input class="amount-input" inputmode="decimal" value="1.000"></div>
-          </div>
-        </div>
-        <div class="sim-kpis">
-          <div class="sim-kpi"><span>Taxa prevista</span><strong>25% a.a.</strong></div>
-          <div class="sim-kpi"><span>Prazo até a data prevista</span><strong class="term-output">···</strong></div>
-          <div class="sim-kpi"><span>Potencial bruto no prazo</span><strong class="future-output">···</strong></div>
-        </div>
-        <div class="chart"><svg viewBox="0 0 900 285" preserveAspectRatio="none"></svg></div>
-        <div class="sim-note">Simulação ilustrativa com capitalização anual composta até a data formal informada. Não considera impostos, amortizações, Cash Sweep, alterações de cronograma ou particularidades do fluxo da oferta. CDI de referência do mockup: 14,90% a.a., substituir pelo parâmetro oficial da campanha.</div>
-        <div class="sim-actions"><a class="btn btn-primary btn-large" href="#">Investir nesta oportunidade</a><a class="btn btn-outline btn-large" href="#">Ver lâmina</a></div>
-      </div>
     </article>
 
     <!-- TRABALHISTA -->
     <article class="product" id="trabalhista">
       <div class="product-header">
-        <div class="kicker">02 · Cesta de Créditos Trabalhistas</div>
+        <span class="kicker">02 · Cesta de Créditos Trabalhistas</span>
         <h2>26 créditos. Uma carteira que já começou a avançar.</h2>
         <p>Uma estrutura diversificada entre Grupo Samcil e Grupo São Jorge, com taxa especial de 32% a.a. prevista durante a campanha.</p>
       </div>
 
-      <div class="video-wrap"><div class="video"><small>Vídeo da lâmina · Créditos Trabalhistas</small></div></div>
-
-      <div class="metrics">
-        <div class="metric"><span>Rentabilidade prevista</span><strong>32% a.a.</strong></div>
-        <div class="metric"><span>Vencimento previsto</span><strong>01/04/2030</strong></div>
-        <div class="metric"><span>Nível de garantia</span><strong>Consultar no app</strong></div>
-      </div>
-
-      <div class="product-actions">
-        <a class="btn btn-dark btn-large" href="#trabalhista-simulador">Simular meu retorno</a>
-        <a class="btn btn-outline btn-large" href="#">Ver lâmina</a>
-      </div>
-
-      <div class="story">
-        <div class="story-card invest">
-          <h3>O que você está investindo?</h3>
-          <p>Uma carteira securitizada com <strong>26 créditos trabalhistas em fase de execução</strong>, distribuídos entre dois grupos devedores: Samcil e São Jorge. Os créditos trabalhistas possuem preferência legal no recebimento e cada grupo possui sua própria estratégia de recuperação.</p>
-        </div>
-
-        <div class="story-card thesis">
-          <h3>O que sustenta a tese?</h3>
-          <p>A operação combina acompanhamento contencioso, busca patrimonial, recebimentos direcionados a conta Escrow de gestão administrativa da GCB e monitoramento dos eventos de liquidação.</p>
-          <div class="evidence-grid">
-            <div class="evidence"><strong>26</strong><span>créditos trabalhistas na carteira.</span></div>
-            <div class="evidence"><strong>10</strong><span>processos da Samcil já com depósito efetuado, segundo a atualização de 08/09.</span></div>
-            <div class="evidence"><strong>~R$ 10 mi</strong><span>em recursos já presentes no processo do Grupo São Jorge, segundo a atualização de 08/09.</span></div>
+      <div class="product-body">
+        <div class="product-media">
+          <div class="video"><div class="icon-circular">▶</div><small>Vídeo da lâmina · Créditos Trabalhistas</small></div>
+          <div class="metrics">
+            <div class="metric rate"><span>Rentabilidade prevista</span><strong>32% a.a.</strong></div>
+            <div class="metric"><span>Vencimento previsto</span><strong>01/04/2030</strong></div>
+            <div class="metric"><span>Nível de garantia</span><strong>Consultar no app</strong></div>
+          </div>
+          <div class="product-actions">
+            <a class="btn btn-primary" href="#">Investir nesta oportunidade</a>
+            <a class="btn btn-secondary" href="#">Ver lâmina</a>
           </div>
         </div>
 
-        <div class="story-card diff">
-          <h3>Diferencial da operação</h3>
-          <p><strong>Há eventos de recebimento acontecendo antes do vencimento formal.</strong> No Grupo Samcil, a expectativa atual é de levantamento de aproximadamente R$ 1,2 milhão até meados de outubro. No Grupo São Jorge, a tese conta com recursos e ativos identificados para sustentar a estratégia de execução.</p>
+        <div class="story">
+          <div class="story-card invest">
+            <h3>O que você está investindo?</h3>
+            <p>Uma carteira securitizada com <strong>26 créditos trabalhistas em fase de execução</strong>, distribuídos entre dois grupos devedores: Samcil e São Jorge. Os créditos trabalhistas possuem preferência legal no recebimento e cada grupo possui sua própria estratégia de recuperação.</p>
+          </div>
+
+          <div class="story-card thesis">
+            <h3>O que sustenta a tese?</h3>
+            <p>A operação combina acompanhamento contencioso, busca patrimonial, recebimentos direcionados a conta Escrow de gestão administrativa da GCB e monitoramento dos eventos de liquidação.</p>
+            <div class="evidence-grid">
+              <div class="evidence"><strong>26</strong><span>créditos trabalhistas na carteira.</span></div>
+              <div class="evidence"><strong>10</strong><span>processos da Samcil já com depósito efetuado, segundo a atualização de 08/09.</span></div>
+              <div class="evidence"><strong>~R$ 10 mi</strong><span>em recursos já presentes no processo do Grupo São Jorge, segundo a atualização de 08/09.</span></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="simulator" id="trabalhista-simulador" data-rate="32" data-maturity="2030-04-01" data-product="Créditos Trabalhistas">
-        <div class="simulator-top">
-          <div>
-            <h3>Simule o potencial de retorno</h3>
-            <p class="sub">Altere o aporte e veja a curva ilustrativa até o vencimento formal da operação.</p>
-          </div>
-          <div class="amount-field">
-            <label>Valor do aporte</label>
-            <div class="amount-input-wrap"><span class="amount-prefix">R$</span><input class="amount-input" inputmode="decimal" value="1.000"></div>
-          </div>
-        </div>
-        <div class="sim-kpis">
-          <div class="sim-kpi"><span>Taxa prevista</span><strong>32% a.a.</strong></div>
-          <div class="sim-kpi"><span>Prazo até o vencimento</span><strong class="term-output">···</strong></div>
-          <div class="sim-kpi"><span>Potencial bruto no prazo</span><strong class="future-output">···</strong></div>
-        </div>
-        <div class="chart"><svg viewBox="0 0 900 285" preserveAspectRatio="none"></svg></div>
-        <div class="sim-note">Simulação ilustrativa com capitalização anual composta até o vencimento formal. Não considera impostos, amortizações, Cash Sweep, recebimentos antecipados ou diferenças entre duration e vencimento. CDI de referência do mockup: 14,90% a.a., substituir pelo parâmetro oficial da campanha.</div>
-        <div class="sim-actions"><a class="btn btn-primary btn-large" href="#">Investir nesta oportunidade</a><a class="btn btn-outline btn-large" href="#">Ver lâmina</a></div>
+      <div class="story-card diff">
+        <h3>Diferencial da operação</h3>
+        <p><strong>Há eventos de recebimento acontecendo antes do vencimento formal.</strong> No Grupo Samcil, a expectativa atual é de levantamento de aproximadamente R$ 1,2 milhão até meados de outubro. No Grupo São Jorge, a tese conta com recursos e ativos identificados para sustentar a estratégia de execução.</p>
       </div>
     </article>
 
     <!-- PREVIDENCIÁRIA -->
     <article class="product" id="previdenciaria">
       <div class="product-header">
-        <div class="kicker">03 · Renda Fixa Previdenciária</div>
+        <span class="kicker">03 · Renda Fixa Previdenciária</span>
         <h2>Mais risco na origem. Mais potencial de retorno.</h2>
         <p>Uma tese baseada na seleção de ações previdenciárias ainda sem sentença, com critérios de elegibilidade, diversificação e monitoramento contínuo.</p>
       </div>
 
-      <div class="video-wrap"><div class="video"><small>Vídeo da lâmina · Renda Fixa Previdenciária</small></div></div>
-
-      <div class="metrics">
-        <div class="metric"><span>Rentabilidade prevista</span><strong>32% a.a.</strong></div>
-        <div class="metric"><span>Vencimento previsto</span><strong>19/11/2029</strong></div>
-        <div class="metric"><span>Nível de garantia</span><strong>Consultar no app</strong></div>
-      </div>
-
-      <div class="product-actions">
-        <a class="btn btn-dark btn-large" href="#previdenciaria-simulador">Simular meu retorno</a>
-        <a class="btn btn-outline btn-large" href="#">Ver lâmina</a>
-      </div>
-
-      <div class="story">
-        <div class="story-card invest">
-          <h3>O que você está investindo?</h3>
-          <p>A GCB investe em ações previdenciárias ainda sem sentença, com base na expectativa de ganho dos processos. As operações são estruturadas a partir da compra de honorários futuros de casos selecionados com critérios rigorosos.</p>
-        </div>
-
-        <div class="story-card thesis">
-          <h3>O que sustenta a tese?</h3>
-          <p>Antes da securitização, os processos passam por análise jurídica e precisam atender aos critérios de elegibilidade da operação. Cada lote é monitorado ao longo da sua evolução, com relatórios periódicos e acompanhamento dos casos.</p>
-          <div class="evidence-grid">
-            <div class="evidence"><strong>32% a.a.</strong><span>rentabilidade prevista da operação.</span></div>
-            <div class="evidence"><strong>INSS</strong><span>ações acidentárias que podem originar RPVs ou precatórios em caso de êxito.</span></div>
-            <div class="evidence"><strong>Monitoramento</strong><span>acompanhamento periódico dos processos adquiridos.</span></div>
+      <div class="product-body">
+        <div class="product-media">
+          <div class="video"><div class="icon-circular">▶</div><small>Vídeo da lâmina · Renda Fixa Previdenciária</small></div>
+          <div class="metrics">
+            <div class="metric rate"><span>Rentabilidade prevista</span><strong>32% a.a.</strong></div>
+            <div class="metric"><span>Vencimento previsto</span><strong>19/11/2029</strong></div>
+            <div class="metric"><span>Nível de garantia</span><strong>Consultar no app</strong></div>
+          </div>
+          <div class="product-actions">
+            <a class="btn btn-primary" href="#">Investir nesta oportunidade</a>
+            <a class="btn btn-secondary" href="#">Ver lâmina</a>
           </div>
         </div>
 
-        <div class="story-card diff">
-          <h3>Diferencial da operação</h3>
-          <p><strong>Como o pagamento depende do desfecho da ação, é um investimento de mais risco, com potencial de retorno maior.</strong> Diferentemente de uma tese em que o crédito já foi reconhecido definitivamente, aqui o ganho depende da procedência dos processos selecionados.</p>
+        <div class="story">
+          <div class="story-card invest">
+            <h3>O que você está investindo?</h3>
+            <p>A GCB investe em ações previdenciárias ainda sem sentença, com base na expectativa de ganho dos processos. As operações são estruturadas a partir da compra de honorários futuros de casos selecionados com critérios rigorosos.</p>
+          </div>
+
+          <div class="story-card thesis">
+            <h3>O que sustenta a tese?</h3>
+            <p>Antes da securitização, os processos passam por análise jurídica e precisam atender aos critérios de elegibilidade da operação. Cada lote é monitorado ao longo da sua evolução, com relatórios periódicos e acompanhamento dos casos.</p>
+            <div class="evidence-grid">
+              <div class="evidence"><strong>32% a.a.</strong><span>rentabilidade prevista da operação.</span></div>
+              <div class="evidence"><strong>INSS</strong><span>ações acidentárias que podem originar RPVs ou precatórios em caso de êxito.</span></div>
+              <div class="evidence"><strong>Monitoramento</strong><span>acompanhamento periódico dos processos adquiridos.</span></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="simulator" id="previdenciaria-simulador" data-rate="32" data-maturity="2029-11-19" data-product="Renda Fixa Previdenciária">
-        <div class="simulator-top">
-          <div>
-            <h3>Simule o potencial de retorno</h3>
-            <p class="sub">Digite um aporte para visualizar uma projeção ilustrativa até o vencimento previsto.</p>
-          </div>
-          <div class="amount-field">
-            <label>Valor do aporte</label>
-            <div class="amount-input-wrap"><span class="amount-prefix">R$</span><input class="amount-input" inputmode="decimal" value="1.000"></div>
-          </div>
-        </div>
-        <div class="sim-kpis">
-          <div class="sim-kpi"><span>Taxa prevista</span><strong>32% a.a.</strong></div>
-          <div class="sim-kpi"><span>Prazo até o vencimento</span><strong class="term-output">···</strong></div>
-          <div class="sim-kpi"><span>Potencial bruto no prazo</span><strong class="future-output">···</strong></div>
-        </div>
-        <div class="chart"><svg viewBox="0 0 900 285" preserveAspectRatio="none"></svg></div>
-        <div class="sim-note">Simulação ilustrativa com capitalização anual composta até o vencimento formal. Não considera impostos, eventual improcedência dos processos, alterações de cronograma ou características específicas dos fluxos. CDI de referência do mockup: 14,90% a.a., substituir pelo parâmetro oficial da campanha.</div>
-        <div class="sim-actions"><a class="btn btn-primary btn-large" href="#">Investir nesta oportunidade</a><a class="btn btn-outline btn-large" href="#">Ver lâmina</a></div>
+      <div class="story-card diff">
+        <h3>Diferencial da operação</h3>
+        <p><strong>Como o pagamento depende do desfecho da ação, é um investimento de mais risco, com potencial de retorno maior.</strong> Diferentemente de uma tese em que o crédito já foi reconhecido definitivamente, aqui o ganho depende da procedência dos processos selecionados.</p>
       </div>
     </article>
 
     <!-- ALOÉS -->
     <article class="product" id="aloes">
       <div class="product-header">
-        <div class="kicker">04 · Operação Aloés</div>
+        <span class="kicker">04 · Operação Aloés</span>
         <h2>Crédito reconhecido. Estratégia focada na recuperação.</h2>
         <p>Uma operação com trânsito em julgado, aval dos sócios, patrimônio mapeado e preferência da GCB no recebimento.</p>
       </div>
 
-      <div class="video-wrap"><div class="video"><small>Vídeo da lâmina · Operação Aloés</small></div></div>
-
-      <div class="metrics">
-        <div class="metric"><span>Rentabilidade prevista</span><strong>34% a.a.</strong></div>
-        <div class="metric"><span>Vencimento previsto</span><strong>08/06/2030</strong></div>
-        <div class="metric"><span>Nível de garantia</span><strong>Consultar no app</strong></div>
-      </div>
-
-      <div class="product-actions">
-        <a class="btn btn-dark btn-large" href="#aloes-simulador">Simular meu retorno</a>
-        <a class="btn btn-outline btn-large" href="#">Ver lâmina</a>
-      </div>
-
-      <div class="story">
-        <div class="story-card invest">
-          <h3>O que você está investindo?</h3>
-          <p>Uma operação estruturada sobre parte de um crédito judicial com trânsito em julgado, em fase de cumprimento de sentença, com cobrança também direcionada aos sócios avalistas.</p>
-        </div>
-
-        <div class="story-card thesis">
-          <h3>O que sustenta a tese?</h3>
-          <p>A estratégia combina acompanhamento jurídico especializado, busca patrimonial e uma estrutura de preferência no recebimento da GCB.</p>
-          <div class="evidence-grid">
-            <div class="evidence"><strong>+R$ 113 mi</strong><span>em bens mapeados na busca patrimonial.</span></div>
-            <div class="evidence"><strong>+R$ 47 mi</strong><span>em ativos já arrestados judicialmente.</span></div>
-            <div class="evidence"><strong>Preferência</strong><span>valores obtidos na execução são direcionados primeiro à quitação do crédito da GCB, conforme a estrutura.</span></div>
+      <div class="product-body">
+        <div class="product-media">
+          <div class="video"><div class="icon-circular">▶</div><small>Vídeo da lâmina · Operação Aloés</small></div>
+          <div class="metrics">
+            <div class="metric rate"><span>Rentabilidade prevista</span><strong>34% a.a.</strong></div>
+            <div class="metric"><span>Vencimento previsto</span><strong>08/06/2030</strong></div>
+            <div class="metric"><span>Nível de garantia</span><strong>Consultar no app</strong></div>
+          </div>
+          <div class="product-actions">
+            <a class="btn btn-primary" href="#">Investir nesta oportunidade</a>
+            <a class="btn btn-secondary" href="#">Ver lâmina</a>
           </div>
         </div>
 
-        <div class="story-card diff">
-          <h3>Diferencial da operação</h3>
-          <p><strong>Trânsito em julgado, aval dos sócios e Cash Sweep.</strong> A cobrança não fica restrita à situação financeira da companhia operacional, e os valores recuperados podem ser repassados conforme as liquidações acontecem.</p>
+        <div class="story">
+          <div class="story-card invest">
+            <h3>O que você está investindo?</h3>
+            <p>Uma operação estruturada sobre parte de um crédito judicial com trânsito em julgado, em fase de cumprimento de sentença, com cobrança também direcionada aos sócios avalistas.</p>
+          </div>
+
+          <div class="story-card thesis">
+            <h3>O que sustenta a tese?</h3>
+            <p>A estratégia combina acompanhamento jurídico especializado, busca patrimonial e uma estrutura de preferência no recebimento da GCB.</p>
+            <div class="evidence-grid">
+              <div class="evidence"><strong>+R$ 113 mi</strong><span>em bens mapeados na busca patrimonial.</span></div>
+              <div class="evidence"><strong>+R$ 47 mi</strong><span>em ativos já arrestados judicialmente.</span></div>
+              <div class="evidence"><strong>Preferência</strong><span>valores obtidos na execução são direcionados primeiro à quitação do crédito da GCB, conforme a estrutura.</span></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="simulator" id="aloes-simulador" data-rate="34" data-maturity="2030-06-08" data-product="Operação Aloés">
-        <div class="simulator-top">
-          <div>
-            <h3>Simule o potencial de retorno</h3>
-            <p class="sub">Altere o valor do aporte e acompanhe a curva ilustrativa até o vencimento previsto.</p>
-          </div>
-          <div class="amount-field">
-            <label>Valor do aporte</label>
-            <div class="amount-input-wrap"><span class="amount-prefix">R$</span><input class="amount-input" inputmode="decimal" value="1.000"></div>
-          </div>
-        </div>
-        <div class="sim-kpis">
-          <div class="sim-kpi"><span>Taxa prevista</span><strong>34% a.a.</strong></div>
-          <div class="sim-kpi"><span>Prazo até o vencimento</span><strong class="term-output">···</strong></div>
-          <div class="sim-kpi"><span>Potencial bruto no prazo</span><strong class="future-output">···</strong></div>
-        </div>
-        <div class="chart"><svg viewBox="0 0 900 285" preserveAspectRatio="none"></svg></div>
-        <div class="sim-note">Simulação ilustrativa com capitalização anual composta até o vencimento formal. Não considera impostos, Cash Sweep, amortizações, timing de recuperação ou demais condições da oferta. CDI de referência do mockup: 14,90% a.a., substituir pelo parâmetro oficial da campanha.</div>
-        <div class="sim-actions"><a class="btn btn-primary btn-large" href="#">Investir nesta oportunidade</a><a class="btn btn-outline btn-large" href="#">Ver lâmina</a></div>
+      <div class="story-card diff">
+        <h3>Diferencial da operação</h3>
+        <p><strong>Trânsito em julgado, aval dos sócios e Cash Sweep.</strong> A cobrança não fica restrita à situação financeira da companhia operacional, e os valores recuperados podem ser repassados conforme as liquidações acontecem.</p>
       </div>
     </article>
 
@@ -528,7 +454,7 @@ p{font-size:14px;line-height:1.6;color:var(--ink-soft)}
   <div class="container">
     <div class="section-head">
       <div>
-        <div class="kicker">Por que ativos judiciais?</div>
+        <span class="kicker">Por que ativos judiciais?</span>
         <h2>Por que esses ativos funcionam diferente da Renda Fixa tradicional?</h2>
       </div>
       <p>Ativos judiciais possuem uma dinâmica própria de risco e retorno. Sua performance está relacionada à evolução e ao pagamento dos créditos que lastreiam cada operação, e não à valorização da Bolsa. Por isso, podem adicionar à carteira uma fonte diferente de potencial retorno.</p>
@@ -541,11 +467,11 @@ p{font-size:14px;line-height:1.6;color:var(--ink-soft)}
   </div>
 </section>
 
-<section class="authority">
+<section class="authority surface-dark">
   <div class="container">
     <div class="section-head">
       <div>
-        <div class="kicker">Por que uma rentabilidade acima da média?</div>
+        <span class="kicker">Por que uma rentabilidade acima da média?</span>
         <h2>High Yield não é ignorar o risco. É saber onde ele está.</h2>
       </div>
       <p>Cada operação tem uma equação diferente. A análise da GCB considera natureza do crédito, estágio processual, critérios de elegibilidade, potencial de recuperação, garantias e estrutura de pagamento antes de disponibilizar uma tese aos investidores.</p>
@@ -562,237 +488,11 @@ p{font-size:14px;line-height:1.6;color:var(--ink-soft)}
 <section class="final">
   <div class="container">
     <h2>Compare as teses antes de escolher onde investir.</h2>
-    <p>Durante a Semana do Cliente, conheça as estruturas, entenda os riscos e simule o potencial retorno das oportunidades disponíveis até 15/09.</p>
-    <a class="btn btn-dark btn-large" href="#pre-rpv-simulador">Simular meu retorno</a>
+    <p>Durante a Semana do Cliente, conheça as estruturas, entenda os riscos e avalie as oportunidades disponíveis até 15/09.</p>
+    <a class="btn btn-primary" href="#oportunidades">Ver oportunidades</a>
     <div class="disclaimer">Rentabilidades previstas não representam garantia de retorno. Os resultados efetivos podem ser diferentes das simulações. Consulte as informações essenciais e os fatores de risco de cada oferta antes de investir.</div>
   </div>
 </section>
-
-<script>
-(function(){
-  const START = new Date('2026-09-09T12:00:00');
-  const CDI = 14.90;
-  const COLOR_OP = '#88BC6C';   /* --green: curva da operação */
-  const COLOR_CDI = '#A29C62';  /* --khaki: curva de referência CDI */
-  const COLOR_AXIS = '#F7F5EE'; /* --cream: eixos e rótulos sobre fundo escuro */
-
-  function parseBRL(raw){
-    let s = String(raw || '').replace(/[^\d,.-]/g,'').trim();
-    if(!s) return 0;
-    if(s.includes(',')){
-      s = s.replace(/\./g,'').replace(',','.');
-    }else{
-      const parts = s.split('.');
-      if(parts.length > 1 && parts[parts.length-1].length === 3) s = parts.join('');
-    }
-    const n = parseFloat(s);
-    return isFinite(n) ? n : 0;
-  }
-
-  function formatBRL(n){
-    return new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:2}).format(n);
-  }
-
-  function formatInput(n){
-    return new Intl.NumberFormat('pt-BR',{maximumFractionDigits:0}).format(n);
-  }
-
-  function yearsBetween(a,b){
-    return Math.max(0,(b-a)/(365.2425*24*60*60*1000));
-  }
-
-  function termLabel(years){
-    const totalMonths = Math.round(years*12);
-    const y = Math.floor(totalMonths/12);
-    const m = totalMonths%12;
-    if(y && m) return `${y} anos e ${m} meses`;
-    if(y) return `${y} ${y===1?'ano':'anos'}`;
-    return `${m} ${m===1?'mês':'meses'}`;
-  }
-
-  function drawChart(svg, amount, rate, years){
-    const W=900,H=285,L=62,R=28,T=28,B=48;
-    const steps=36;
-    const op=[],cdi=[];
-    for(let i=0;i<=steps;i++){
-      const t=years*(i/steps);
-      op.push(amount*Math.pow(1+rate/100,t));
-      cdi.push(amount*Math.pow(1+CDI/100,t));
-    }
-    const max=Math.max(...op,...cdi,amount)*1.08;
-    const min=amount*.94;
-    const x=i=>L+(W-L-R)*(i/steps);
-    const y=v=>T+(H-T-B)*(1-(v-min)/(max-min));
-    const path=arr=>arr.map((v,i)=>(i?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1)).join(' ');
-    const opEnd=op[op.length-1], cdiEnd=cdi[cdi.length-1];
-
-    svg.innerHTML = `
-      <line x1="${L}" y1="${H-B}" x2="${W-R}" y2="${H-B}" stroke="${COLOR_AXIS}" stroke-width="1.6" opacity=".22"/>
-      <line x1="${L}" y1="${T}" x2="${L}" y2="${H-B}" stroke="${COLOR_AXIS}" stroke-width="1.6" opacity=".22"/>
-      <path d="${path(op)}" fill="none" stroke="${COLOR_OP}" stroke-width="5" stroke-linecap="round"/>
-      <path d="${path(cdi)}" fill="none" stroke="${COLOR_CDI}" stroke-width="3" stroke-linecap="round" opacity=".6"/>
-      <circle cx="${x(steps)}" cy="${y(opEnd)}" r="5.5" fill="${COLOR_OP}"/>
-      <circle cx="${x(steps)}" cy="${y(cdiEnd)}" r="4.5" fill="${COLOR_CDI}"/>
-      <text x="${L}" y="${H-17}" class="chart-label" fill="${COLOR_AXIS}" opacity=".7">HOJE</text>
-      <text x="${W-R-70}" y="${H-17}" class="chart-label" fill="${COLOR_AXIS}" opacity=".7">VENCIMENTO</text>
-      <text x="${W-R-116}" y="${Math.max(18,y(opEnd)-12)}" class="chart-label" fill="${COLOR_OP}">OPERAÇÃO ${rate.toFixed(0)}% a.a.</text>
-      <text x="${W-R-94}" y="${Math.min(H-B-8,y(cdiEnd)+22)}" class="chart-label" fill="${COLOR_CDI}">CDI ${CDI.toFixed(2).replace('.',',')}%</text>
-    `;
-  }
-
-  document.querySelectorAll('.simulator').forEach(sim=>{
-    const rate=parseFloat(sim.dataset.rate);
-    const maturity=new Date(sim.dataset.maturity+'T12:00:00');
-    const years=yearsBetween(START,maturity);
-    const input=sim.querySelector('.amount-input');
-    const future=sim.querySelector('.future-output');
-    const term=sim.querySelector('.term-output');
-    const svg=sim.querySelector('svg');
-
-    term.textContent=termLabel(years);
-
-    function update(){
-      let amount=parseBRL(input.value);
-      if(amount<1000) amount=1000;
-      const fv=amount*Math.pow(1+rate/100,years);
-      future.textContent=formatBRL(fv);
-      drawChart(svg,amount,rate,years);
-    }
-
-    input.addEventListener('focus',()=>{ input.select(); });
-    input.addEventListener('input',update);
-    input.addEventListener('blur',()=>{
-      let amount=parseBRL(input.value);
-      if(amount<1000) amount=1000;
-      input.value=formatInput(amount);
-      update();
-    });
-    update();
-  });
-})();
-</script>
-
-<script>
-// Hero background: drifting translucent "shard" facets in GCB green tones.
-// Lightweight Canvas2D equivalent of a WebGPU shard effect — no dependencies, works everywhere.
-(function(){
-  const canvas=document.getElementById('heroShards');
-  const hero=canvas && canvas.closest('.hero');
-  if(!canvas||!hero) return;
-  const ctx=canvas.getContext('2d');
-  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  const PALETTE=['#88BC6C','#9DCC84','#6FA253','#C7DDB6'];
-  let W=0,H=0,DPR=1,shards=[],running=false,visible=true;
-  let pointer={x:0.5,y:0.4,tx:0.5,ty:0.4};
-
-  function rand(min,max){ return min+Math.random()*(max-min); }
-
-  function shardCount(w){
-    if(w<640) return 14;
-    if(w<1024) return 20;
-    return 28;
-  }
-
-  function makeShard(){
-    const sides=4+Math.floor(rand(0,3)); // 4-6 sided facets
-    const radius=rand(38,132);
-    const points=[];
-    for(let i=0;i<sides;i++){
-      const a=(i/sides)*Math.PI*2+rand(-.25,.25);
-      const r=radius*rand(.72,1);
-      points.push([Math.cos(a)*r,Math.sin(a)*r]);
-    }
-    const depth=rand(.35,1); // parallax + size/opacity weight
-    return {
-      x:rand(0,1),y:rand(0,1), // normalized position within hero
-      points,
-      rot:rand(0,Math.PI*2),
-      rotSpeed:rand(-.06,.06)*(reduceMotion?0:1),
-      vx:rand(-.015,.015)*(reduceMotion?0:1),
-      vy:rand(-.008,.02)*(reduceMotion?0:1),
-      depth,
-      color:PALETTE[Math.floor(rand(0,PALETTE.length))],
-      opacity:rand(.05,.16)*depth,
-      glow:rand(14,46)
-    };
-  }
-
-  function resize(){
-    const rect=hero.getBoundingClientRect();
-    W=rect.width; H=rect.height;
-    DPR=Math.min(window.devicePixelRatio||1,2);
-    canvas.width=Math.round(W*DPR);
-    canvas.height=Math.round(H*DPR);
-    canvas.style.width=W+'px';
-    canvas.style.height=H+'px';
-    ctx.setTransform(DPR,0,0,DPR,0,0);
-    const count=shardCount(W);
-    if(shards.length!==count){
-      shards=Array.from({length:count},makeShard);
-    }
-  }
-
-  function drawShard(s){
-    const parX=(pointer.x-.5)*24*s.depth;
-    const parY=(pointer.y-.5)*16*s.depth;
-    const cx=s.x*W+parX, cy=s.y*H+parY;
-    ctx.save();
-    ctx.translate(cx,cy);
-    ctx.rotate(s.rot);
-    ctx.beginPath();
-    s.points.forEach(([px,py],i)=>{ i===0?ctx.moveTo(px,py):ctx.lineTo(px,py); });
-    ctx.closePath();
-    ctx.shadowColor=s.color;
-    ctx.shadowBlur=s.glow;
-    ctx.globalAlpha=s.opacity;
-    ctx.fillStyle=s.color;
-    ctx.fill();
-    ctx.globalAlpha=Math.min(1,s.opacity*1.8);
-    ctx.lineWidth=1;
-    ctx.strokeStyle=s.color;
-    ctx.stroke();
-    ctx.restore();
-  }
-
-  function tick(){
-    if(!running) return;
-    ctx.clearRect(0,0,W,H);
-    pointer.x+=(pointer.tx-pointer.x)*.04;
-    pointer.y+=(pointer.ty-pointer.y)*.04;
-    for(const s of shards){
-      s.x+=s.vx*.01; s.y+=s.vy*.01;
-      s.rot+=s.rotSpeed*.01;
-      if(s.x<-.15)s.x=1.15; if(s.x>1.15)s.x=-.15;
-      if(s.y<-.15)s.y=1.15; if(s.y>1.15)s.y=-.15;
-      drawShard(s);
-    }
-    requestAnimationFrame(tick);
-  }
-
-  function start(){ if(running) return; running=true; requestAnimationFrame(tick); }
-  function stop(){ running=false; }
-
-  window.addEventListener('resize',resize);
-  hero.addEventListener('pointermove',e=>{
-    const rect=hero.getBoundingClientRect();
-    pointer.tx=(e.clientX-rect.left)/rect.width;
-    pointer.ty=(e.clientY-rect.top)/rect.height;
-  });
-
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(entries=>{
-      visible=entries[0].isIntersecting;
-      if(visible) start(); else stop();
-    }).observe(hero);
-  } else { start(); }
-
-  resize();
-  ctx.clearRect(0,0,W,H);
-  shards.forEach(drawShard); // static first paint
-  if(!reduceMotion) start();
-})();
-</script>
 
 </body>
 </html>
