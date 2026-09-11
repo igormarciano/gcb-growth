@@ -62,10 +62,12 @@ p{font-size:14px;line-height:1.6;color:var(--ink-soft)}
 .btn-large{min-height:64px;padding:0 36px;font-size:1.02rem}
 
 /* HERO */
-.hero{background:
+.hero{position:relative;overflow:hidden;background:
   radial-gradient(circle at 80% 15%,rgba(136,188,108,.16),transparent 32%),
   linear-gradient(150deg,var(--olive-950) 0%,var(--olive-900) 64%,var(--olive-800) 100%);
   color:var(--cream);padding:22px 0 56px}
+.hero-shards{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.hero>.container{position:relative;z-index:1}
 .hero nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px}
 .brand{font-family:var(--head);font-weight:700;letter-spacing:.06em;color:var(--cream)}
 .brand img{display:block;height:26px;width:auto}
@@ -208,6 +210,7 @@ p{font-size:14px;line-height:1.6;color:var(--ink-soft)}
 <body>
 
 <header class="hero">
+  <canvas class="hero-shards" id="heroShards" aria-hidden="true"></canvas>
   <div class="container">
     <nav>
       <div class="brand"><img src="/logo-branco.png" alt="GCB Investimentos"></div>
@@ -666,6 +669,128 @@ p{font-size:14px;line-height:1.6;color:var(--ink-soft)}
     });
     update();
   });
+})();
+</script>
+
+<script>
+// Hero background: drifting translucent "shard" facets in GCB green tones.
+// Lightweight Canvas2D equivalent of a WebGPU shard effect — no dependencies, works everywhere.
+(function(){
+  const canvas=document.getElementById('heroShards');
+  const hero=canvas && canvas.closest('.hero');
+  if(!canvas||!hero) return;
+  const ctx=canvas.getContext('2d');
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const PALETTE=['#88BC6C','#9DCC84','#6FA253','#C7DDB6'];
+  let W=0,H=0,DPR=1,shards=[],running=false,visible=true;
+  let pointer={x:0.5,y:0.4,tx:0.5,ty:0.4};
+
+  function rand(min,max){ return min+Math.random()*(max-min); }
+
+  function shardCount(w){
+    if(w<640) return 14;
+    if(w<1024) return 20;
+    return 28;
+  }
+
+  function makeShard(){
+    const sides=4+Math.floor(rand(0,3)); // 4-6 sided facets
+    const radius=rand(38,132);
+    const points=[];
+    for(let i=0;i<sides;i++){
+      const a=(i/sides)*Math.PI*2+rand(-.25,.25);
+      const r=radius*rand(.72,1);
+      points.push([Math.cos(a)*r,Math.sin(a)*r]);
+    }
+    const depth=rand(.35,1); // parallax + size/opacity weight
+    return {
+      x:rand(0,1),y:rand(0,1), // normalized position within hero
+      points,
+      rot:rand(0,Math.PI*2),
+      rotSpeed:rand(-.06,.06)*(reduceMotion?0:1),
+      vx:rand(-.015,.015)*(reduceMotion?0:1),
+      vy:rand(-.008,.02)*(reduceMotion?0:1),
+      depth,
+      color:PALETTE[Math.floor(rand(0,PALETTE.length))],
+      opacity:rand(.05,.16)*depth,
+      glow:rand(14,46)
+    };
+  }
+
+  function resize(){
+    const rect=hero.getBoundingClientRect();
+    W=rect.width; H=rect.height;
+    DPR=Math.min(window.devicePixelRatio||1,2);
+    canvas.width=Math.round(W*DPR);
+    canvas.height=Math.round(H*DPR);
+    canvas.style.width=W+'px';
+    canvas.style.height=H+'px';
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    const count=shardCount(W);
+    if(shards.length!==count){
+      shards=Array.from({length:count},makeShard);
+    }
+  }
+
+  function drawShard(s){
+    const parX=(pointer.x-.5)*24*s.depth;
+    const parY=(pointer.y-.5)*16*s.depth;
+    const cx=s.x*W+parX, cy=s.y*H+parY;
+    ctx.save();
+    ctx.translate(cx,cy);
+    ctx.rotate(s.rot);
+    ctx.beginPath();
+    s.points.forEach(([px,py],i)=>{ i===0?ctx.moveTo(px,py):ctx.lineTo(px,py); });
+    ctx.closePath();
+    ctx.shadowColor=s.color;
+    ctx.shadowBlur=s.glow;
+    ctx.globalAlpha=s.opacity;
+    ctx.fillStyle=s.color;
+    ctx.fill();
+    ctx.globalAlpha=Math.min(1,s.opacity*1.8);
+    ctx.lineWidth=1;
+    ctx.strokeStyle=s.color;
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  function tick(){
+    if(!running) return;
+    ctx.clearRect(0,0,W,H);
+    pointer.x+=(pointer.tx-pointer.x)*.04;
+    pointer.y+=(pointer.ty-pointer.y)*.04;
+    for(const s of shards){
+      s.x+=s.vx*.01; s.y+=s.vy*.01;
+      s.rot+=s.rotSpeed*.01;
+      if(s.x<-.15)s.x=1.15; if(s.x>1.15)s.x=-.15;
+      if(s.y<-.15)s.y=1.15; if(s.y>1.15)s.y=-.15;
+      drawShard(s);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function start(){ if(running) return; running=true; requestAnimationFrame(tick); }
+  function stop(){ running=false; }
+
+  window.addEventListener('resize',resize);
+  hero.addEventListener('pointermove',e=>{
+    const rect=hero.getBoundingClientRect();
+    pointer.tx=(e.clientX-rect.left)/rect.width;
+    pointer.ty=(e.clientY-rect.top)/rect.height;
+  });
+
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(entries=>{
+      visible=entries[0].isIntersecting;
+      if(visible) start(); else stop();
+    }).observe(hero);
+  } else { start(); }
+
+  resize();
+  ctx.clearRect(0,0,W,H);
+  shards.forEach(drawShard); // static first paint
+  if(!reduceMotion) start();
 })();
 </script>
 
