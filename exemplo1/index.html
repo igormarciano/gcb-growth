@@ -240,6 +240,43 @@ input[type=range]{flex:1;accent-color:var(--green-deep)}
 footer{padding-block:32px;font-size:11px;color:var(--khaki-dim);text-align:center}
 </style>
 
+<div id="gcbGate" style="position:fixed;inset:0;z-index:9999;background:var(--page-bg,#FAFAFA);display:flex;align-items:center;justify-content:center;padding:20px;">
+  <form id="gcbGateForm" style="background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:32px 28px;max-width:340px;width:100%;text-align:center;font-family:'Inter','Host Grotesk',system-ui,sans-serif;">
+    <div style="font-size:13px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--green-deep,#6FA253);margin-bottom:10px;">Acesso restrito</div>
+    <p style="font-size:14px;color:#444;margin:0 0 18px;line-height:1.5;">Digite a senha para continuar.</p>
+    <input id="gcbGatePass" type="password" placeholder="Senha" autocomplete="off" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid rgba(0,0,0,.12);border-radius:9999px;font-size:14px;margin-bottom:12px;text-align:center;">
+    <div id="gcbGateError" style="display:none;color:#C07428;font-size:12.5px;margin-bottom:12px;">Senha incorreta.</div>
+    <button type="submit" style="width:100%;padding:12px 14px;border:none;border-radius:9999px;background:var(--green,#88BC6C);color:#25230F;font-weight:700;font-size:14px;cursor:pointer;">Entrar</button>
+  </form>
+</div>
+<script>
+(function(){
+  var PASS = 'Gcb*2026';
+  var gate = document.getElementById('gcbGate');
+  function getAuthed(){ try { return sessionStorage.getItem('gcbAuthed') === '1'; } catch(e){ return false; } }
+  function setAuthed(){ try { sessionStorage.setItem('gcbAuthed', '1'); } catch(e){} }
+  if (getAuthed()) { gate.remove(); } else {
+    document.documentElement.style.overflow = 'hidden';
+    var form = document.getElementById('gcbGateForm');
+    var input = document.getElementById('gcbGatePass');
+    var err = document.getElementById('gcbGateError');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (input.value === PASS) {
+        setAuthed();
+        document.documentElement.style.overflow = '';
+        gate.remove();
+      } else {
+        err.style.display = 'block';
+        input.value = '';
+        input.focus();
+      }
+    });
+    input.focus();
+  }
+})();
+</script>
+
 <nav class="nav">
   <div class="nav-inner">
     <span class="nav-logo"><img src="/logo-branco.png" alt="GCB Investimentos" style="display:block;height:20px;width:auto"></span>
