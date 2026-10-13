@@ -1,0 +1,833 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Renovação de Debêntures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400..700;1,400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..600&display=swap">
+<style>
+/* Layout: branco e areia alternados, verde GCB como cor condutora.
+   Source Serif 4 nos títulos e valores; Hanken Grotesk no texto e na interface. */
+:root{
+  color-scheme:light;
+  --white:#FFFFFF;
+  --cream:#FAF8F3;
+  --sand:#EFEBE2;
+  --sand-2:#E3DED2;
+  --ink:#22210F;
+  --ink-2:#4C4A36;
+  --muted:#7B7866;
+  --faint:#A5A190;
+  --line:#E0DACD;
+  --line-2:#C8C2B2;
+  --green:#3F6E26;
+  --green-d:#2C4F18;
+  --green-l:#6E9A4E;
+  --green-wash:rgba(63,110,38,.08);
+  --green-wash-2:rgba(63,110,38,.16);
+  --olive:#312F14;
+  --sec:#B5AF9E;
+  --sec-wash:rgba(181,175,158,.22);
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --maxw:1140px;
+  --r:10px;
+}
+*{box-sizing:border-box}
+body{background:var(--white);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{margin:0;font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacing:-.015em;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+img{display:block}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:30px}
+@media(max-width:640px){.wrap{padding-inline:20px}}
+.sec{padding-block:clamp(54px,7.5vw,100px)}
+.band-sand{background:var(--sand)}
+.band-cream{background:var(--cream)}
+
+.tag{display:inline-flex;align-items:center;gap:11px;font-size:13.5px;font-weight:600;color:var(--green);letter-spacing:.005em}
+.tag::before{content:"";width:22px;height:2px;background:var(--green);border-radius:2px;flex:none}
+.h2{font-size:clamp(31px,4.8vw,54px)}
+.lede{font-size:clamp(16.5px,1.8vw,19px);line-height:1.6;color:var(--ink-2);max-width:54ch}
+.fine{font-size:13px;line-height:1.55;color:var(--muted)}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+.serif{font-family:var(--serif)}
+
+/* ---------- header ---------- */
+.head{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.head-in{display:flex;align-items:center;gap:30px;height:66px}
+.logo{height:18px;width:auto}
+.hnav{display:flex;gap:28px;margin-left:auto}
+.hnav a{font-size:14px;font-weight:500;color:var(--ink-2);text-decoration:none;transition:color .18s}
+.hnav a:hover{color:var(--green)}
+@media(max-width:900px){.hnav{display:none}}
+.readbar{position:absolute;left:0;bottom:-1px;height:2px;background:var(--green);width:0;border-radius:0 2px 2px 0}
+
+/* ---------- CTA ---------- */
+.cta{display:inline-flex;align-items:center;gap:11px;font-family:var(--sans);font-size:16px;font-weight:600;color:#fff;background:var(--green);border:0;border-radius:999px;padding:16px 30px;text-decoration:none;box-shadow:0 1px 2px rgba(44,79,24,.2);transition:background .2s,transform .2s,box-shadow .2s;cursor:pointer}
+.cta:hover{background:var(--green-d);transform:translateY(-1px);box-shadow:0 6px 18px rgba(44,79,24,.22)}
+.cta span{transition:transform .2s}
+.cta:hover span{transform:translateX(3px)}
+.cta-sm{font-size:14px;padding:11px 20px}
+.cta-lg{font-size:17px;padding:19px 36px}
+.cta-row{margin-top:clamp(28px,3.4vw,42px)}
+
+/* ---------- hero ---------- */
+.hero{background:linear-gradient(176deg,var(--cream) 0%,var(--white) 72%);border-bottom:1px solid var(--line)}
+.hero-in{padding-block:clamp(44px,6vw,78px) clamp(40px,5vw,66px);display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(28px,4.5vw,60px);align-items:center}
+@media(max-width:900px){.hero-in{grid-template-columns:1fr;gap:30px}}
+.hero h1{font-size:clamp(40px,6.6vw,74px);line-height:1.02;letter-spacing:-.025em;margin-top:20px}
+.hero h1 em{font-style:italic;font-weight:600;color:var(--green)}
+.hero .lede{margin-top:22px}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}
+.chip{display:inline-flex;align-items:center;gap:9px;background:var(--green-wash);color:var(--green-d);border-radius:999px;padding:9px 17px 9px 14px;font-size:14px;font-weight:600}
+.chip b{width:7px;height:7px;border-radius:50%;background:var(--green);flex:none}
+
+/* arte do hero */
+.hero-art{min-width:0}
+.hero-art svg{width:100%;height:auto;display:block}
+
+/* ---------- trilha interativa ---------- */
+.tl-rail{position:relative;margin-top:clamp(30px,4vw,46px);padding-right:26px}
+.tl-track{position:relative;height:3px;background:var(--line);border-radius:3px}
+.tl-track::after{content:"";position:absolute;right:-13px;top:50%;transform:translateY(-50%);border-left:11px solid var(--line-2);border-top:7px solid transparent;border-bottom:7px solid transparent}
+.tl-fill{position:absolute;inset:0 auto 0 0;background:var(--green);border-radius:3px;width:12.5%;transition:width .45s cubic-bezier(.3,.9,.3,1)}
+.tl-dots{display:grid;grid-template-columns:repeat(4,1fr);margin-top:-11px}
+.tl-dot{background:none;border:0;padding:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:14px;font:inherit;color:inherit;text-align:center}
+.tl-dot i{width:19px;height:19px;border-radius:50%;background:var(--white);border:3px solid var(--line-2);transition:border-color .25s,background .25s,transform .25s}
+.tl-dot:hover i{border-color:var(--green-l)}
+.tl-dot[aria-selected="true"] i{border-color:var(--green);background:var(--green);transform:scale(1.18)}
+.tl-dot span{font-size:13.5px;font-weight:600;color:var(--muted);max-width:18ch;line-height:1.35;transition:color .25s}
+.tl-dot[aria-selected="true"] span{color:var(--ink)}
+@media(max-width:700px){.tl-dot span{font-size:12px;max-width:12ch}}
+@media(max-width:430px){.tl-dot span{font-size:11px}}
+.tl-panel{margin-top:clamp(24px,3.2vw,36px);background:var(--white);border-radius:var(--r);padding:clamp(22px,3vw,32px);display:grid;grid-template-columns:auto 1fr auto;gap:clamp(16px,2.4vw,28px);align-items:center;border:1px solid var(--line)}
+@media(max-width:660px){.tl-panel{grid-template-columns:auto 1fr;gap:14px 18px}}
+.tl-step{font-family:var(--serif);font-size:clamp(36px,5.4vw,58px);font-weight:600;color:var(--green-wash-2);line-height:.9;letter-spacing:-.03em}
+.tl-panel h3{font-size:clamp(19px,2.4vw,25px);margin-bottom:9px}
+.tl-panel p{font-size:15.5px;color:var(--ink-2);max-width:60ch}
+.tl-ben{display:inline-flex;align-items:center;gap:9px;background:var(--green-wash);color:var(--green-d);border-radius:999px;padding:7px 15px 7px 12px;font-size:13.5px;font-weight:700;margin-top:14px}
+.tl-ben::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);flex:none}
+.tl-next{width:48px;height:48px;border-radius:50%;border:0;background:var(--green);color:#fff;font-size:21px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:background .2s,transform .2s}
+.tl-next:hover{background:var(--green-d);transform:translateX(2px)}
+@media(max-width:660px){.tl-next{grid-column:1;width:42px;height:42px;font-size:19px}}
+
+
+/* ---------- gráfico ---------- */
+.cmp{display:grid;grid-template-columns:minmax(0,1.62fr) minmax(250px,1fr);gap:clamp(22px,3vw,40px);align-items:start;margin-top:clamp(30px,4vw,48px)}
+@media(max-width:980px){.cmp{grid-template-columns:1fr}}
+.chart-card{min-width:0;background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:16px 14px 10px}
+#chart{display:block;width:100%;height:auto}
+.clegend{display:flex;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:8px;padding:12px 6px 4px}
+.cl{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--ink-2);font-weight:500}
+.cl b{width:16px;height:3px;border-radius:3px;display:block;flex:none}
+.cards{display:grid;gap:12px}
+.card{border-radius:var(--r);padding:20px 22px 22px}
+.card-win{background:var(--green);color:#fff}
+.card-alt{background:var(--sand);color:var(--ink)}
+.card-k{font-size:13.5px;font-weight:600;display:flex;align-items:center;gap:9px}
+.card-win .card-k{color:rgba(255,255,255,.78)}
+.card-alt .card-k{color:var(--muted)}
+.card-v{font-family:var(--serif);font-size:clamp(28px,3.6vw,36px);font-weight:600;letter-spacing:-.025em;display:block;margin-top:8px}
+.card-n{font-size:13px;line-height:1.45;margin-top:7px}
+.card-win .card-n{color:rgba(255,255,255,.76)}
+.card-alt .card-n{color:var(--muted)}
+.card-diff{background:var(--green-wash);border:1px solid var(--green-wash-2);text-align:center;padding:22px}
+.card-diff .card-v{color:var(--green-d);font-size:clamp(30px,4vw,40px);margin-top:4px}
+.card-diff .card-k{justify-content:center;color:var(--green-d)}
+.card-diff .card-n{color:var(--green-d);opacity:.8}
+
+.drivers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.6vw,34px);margin-top:clamp(28px,3.6vw,44px)}
+@media(max-width:740px){.drivers{grid-template-columns:1fr}}
+.drv{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+.drv-v{font-family:var(--serif);font-size:clamp(22px,2.6vw,27px);font-weight:600;color:var(--green);letter-spacing:-.02em;white-space:nowrap;padding-top:2px}
+.drv h3{font-family:var(--sans);font-size:15.5px;font-weight:700;letter-spacing:0;margin-bottom:5px;line-height:1.35}
+.drv p{font-size:14.5px;color:var(--ink-2);line-height:1.5}
+
+/* ---------- storytelling do exemplo ---------- */
+.story{margin-top:clamp(30px,4vw,46px);display:grid}
+.mo{display:grid;grid-template-columns:22px 1fr;gap:0 20px;padding-bottom:clamp(26px,3vw,36px)}
+.mo:last-child{padding-bottom:0}
+.rail{position:relative;display:flex;justify-content:center}
+.rail i{width:11px;height:11px;border-radius:50%;background:var(--green);margin-top:8px;position:relative;z-index:1}
+.rail::before{content:"";position:absolute;top:10px;bottom:calc(-1 * clamp(26px,3vw,36px));left:50%;width:2px;background:var(--line);transform:translateX(-50%)}
+.mo:last-child .rail::before{display:none}
+.mo-when{display:block;font-size:13.5px;font-weight:700;color:var(--green);margin-bottom:5px}
+.mo-c h3{font-size:clamp(19px,2.3vw,23px);margin-bottom:8px}
+.mo-c p{font-size:15.5px;color:var(--ink-2);line-height:1.56;max-width:62ch}
+.mo-c strong{color:var(--ink);font-weight:700}
+.fork{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+@media(max-width:700px){.fork{grid-template-columns:1fr}}
+.fk{border-radius:var(--r);padding:20px 22px}
+.fk-no{background:var(--sand)}
+.fk-yes{background:var(--green-wash);border:1px solid var(--green-wash-2)}
+.fk b{display:block;font-size:14.5px;font-weight:700;margin-bottom:7px}
+.fk-no b{color:var(--muted)}
+.fk-yes b{color:var(--green-d)}
+.fk p{font-size:14.5px;line-height:1.52}
+.fk-no p{color:var(--ink-2)}
+.fk-yes p{color:var(--green-d)}
+.fk-v{display:block;font-family:var(--serif);font-size:clamp(21px,2.5vw,25px);font-weight:600;letter-spacing:-.02em;margin-top:12px}
+.fk-no .fk-v{color:var(--ink-2)}
+.fk-yes .fk-v{color:var(--green)}
+
+details.prem{margin-top:clamp(26px,3.2vw,38px);border-top:1px solid var(--line)}
+details.prem summary{cursor:pointer;list-style:none;padding-top:16px;font-size:14px;font-weight:600;color:var(--green);display:flex;align-items:center;gap:9px}
+details.prem summary::-webkit-details-marker{display:none}
+details.prem summary::after{content:"+";font-size:17px;font-weight:500}
+details.prem[open] summary::after{content:"–"}
+details.prem ul{margin:15px 0 0;padding-left:19px;display:grid;gap:7px;max-width:92ch}
+details.prem li{font-size:13.5px;line-height:1.55;color:var(--muted)}
+
+/* ---------- escala de IR ---------- */
+.scale{margin-top:clamp(30px,4vw,48px)}
+.bands{display:flex;height:92px;border-radius:var(--r);overflow:hidden;background:var(--white);border:1px solid var(--line)}
+.bd{position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:11px 13px;min-width:0;border-right:1px solid var(--line)}
+.bd:last-child{border-right:0}
+.bd::before{content:"";position:absolute;inset:0;background:var(--green);transform-origin:bottom}
+.bd:nth-child(1)::before{opacity:.10}
+.bd:nth-child(2)::before{opacity:.20}
+.bd:nth-child(3)::before{opacity:.34}
+.bd:nth-child(4)::before{opacity:.5}
+.bd-v{position:relative;font-family:var(--serif);font-size:clamp(18px,2.4vw,26px);font-weight:600;letter-spacing:-.02em;line-height:1}
+.bd-d{position:relative;font-size:11.5px;font-weight:500;color:var(--ink-2);margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pins{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+@media(max-width:620px){.pins{grid-template-columns:1fr}}
+.pin{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;border-radius:var(--r);padding:15px 17px}
+.pin-now{background:var(--sec-wash)}
+.pin-new{background:var(--green-wash)}
+.pin i{width:11px;height:11px;border-radius:50%;margin-top:5px;flex:none}
+.pin-now i{background:var(--sec)}
+.pin-new i{background:var(--green)}
+.pin b{display:block;font-size:14.5px;font-weight:700;line-height:1.35}
+.pin-now b{color:var(--ink-2)}
+.pin-new b{color:var(--green-d)}
+.pin span{display:block;font-size:13px;line-height:1.45;color:var(--muted);margin-top:3px}
+.pin-new span{color:var(--green-d);opacity:.82}
+
+/* ---------- benefícios ---------- */
+.bens{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,22px);margin-top:clamp(30px,4vw,46px)}
+@media(max-width:900px){.bens{grid-template-columns:1fr}}
+.ben{background:var(--white);border-radius:var(--r);padding:clamp(24px,2.8vw,30px);display:flex;flex-direction:column;gap:13px;min-width:0}
+.ben-i{width:46px;height:46px;border-radius:50%;background:var(--green-wash);display:flex;align-items:center;justify-content:center;flex:none;margin-bottom:3px}
+.ben-i svg{width:24px;height:24px;display:block}
+.ben h3{font-size:19.5px}
+.ben p{font-size:14.5px;color:var(--ink-2);line-height:1.5}
+.ben-m{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-family:var(--serif);font-size:17.5px;font-weight:600;color:var(--green);letter-spacing:-.015em}
+.ben-m small{display:block;font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--faint);letter-spacing:0;margin-top:3px}
+
+/* ---------- passos ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.6vw,30px);margin-top:clamp(28px,3.6vw,44px);position:relative}
+@media(max-width:760px){.steps{grid-template-columns:1fr;gap:22px}}
+.stp{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+.stp-n{width:36px;height:36px;border-radius:50%;background:var(--green);color:#fff;font-family:var(--serif);font-size:17px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:none}
+.stp h3{font-family:var(--sans);font-size:16.5px;font-weight:700;letter-spacing:0;margin-bottom:5px}
+.stp p{font-size:14.5px;color:var(--ink-2);line-height:1.5}
+
+/* ---------- faq ---------- */
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:18px 0;font-size:16.5px;font-weight:600;font-family:var(--serif)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--green)}
+.faq summary::after{content:"+";font-family:var(--sans);font-weight:500;font-size:19px;color:var(--green);flex:none}
+.faq details[open] summary::after{content:"–"}
+.faq .ans{padding:0 0 20px;max-width:72ch;font-size:15px;color:var(--ink-2);line-height:1.58}
+
+/* ---------- fecho ---------- */
+.close{background:var(--green);border-radius:var(--r);padding:clamp(34px,4.6vw,58px);display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,3.4vw,46px);align-items:center;color:#fff}
+@media(max-width:800px){.close{grid-template-columns:1fr;gap:26px}}
+.close h2{color:#fff;font-size:clamp(28px,4.2vw,46px)}
+.close p{color:rgba(255,255,255,.82);font-size:16.5px;margin-top:14px;max-width:46ch}
+.close .cta{background:#fff;color:var(--green-d);box-shadow:none}
+.close .cta:hover{background:var(--cream);color:var(--green-d)}
+
+.foot{border-top:1px solid var(--line);padding-block:30px 46px}
+.foot p{font-size:12px;line-height:1.6;color:var(--faint);max-width:94ch}
+.foot p+p{margin-top:9px}
+#ctaWarn{color:var(--green);font-weight:600}
+
+/* ---------- svg ---------- */
+.gl{stroke:var(--line);stroke-width:1}
+.gl2{stroke:var(--line-2);stroke-width:1}
+.tx{fill:var(--faint);font-family:var(--sans);font-weight:500}
+.tx-i{fill:var(--ink-2);font-family:var(--sans);font-weight:600}
+.tx-g{fill:var(--green);font-family:var(--sans);font-weight:700}
+.tx-s{fill:var(--muted);font-family:var(--sans);font-weight:600}
+
+/* reveal: repouso visível */
+.rv.is-anim{animation:rise .75s cubic-bezier(.22,.9,.3,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.drawn.is-anim{animation:dash 1.6s cubic-bezier(.3,.85,.3,1) both}
+@keyframes dash{from{stroke-dashoffset:var(--len)}to{stroke-dashoffset:0}}
+.bd.is-anim::before{transform:scaleY(0);animation:grow .9s cubic-bezier(.3,.9,.3,1) forwards}
+@keyframes grow{to{transform:scaleY(1)}}
+@media(prefers-reduced-motion:reduce){
+  .rv.is-anim,.drawn.is-anim,.bd.is-anim::before{animation:none}
+  *{transition-duration:.01ms!important}
+}
+</style>
+
+<header class="head">
+  <div class="wrap head-in">
+    <a href="#topo" aria-label="GCB Investimentos">
+      <img class="logo" src="data:image/png;base64,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" alt="GCB Investimentos" width="360" height="73">
+    </a>
+    <nav class="hnav">
+      <a href="#como">O que é renovação</a>
+      <a href="#numeros">Quanto rende a mais</a>
+      <a href="#imposto">Prazo e imposto</a>
+    </nav>
+    <a class="cta cta-sm" data-cta href="#">Acessar carteira</a>
+    <div class="readbar" id="readbar"></div>
+  </div>
+</header>
+
+<main id="topo">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <span class="tag">Renovação</span>
+      <h1>Renove e seu capital<br>pode continuar <em>rendendo.</em></h1>
+      <p class="lede">A renovação dá continuidade ao seu investimento antes do vencimento. O capital permanece alocado, os rendimentos não param e o prazo segue correndo a seu favor.</p>
+      <div class="chips">
+        <span class="chip"><b></b> Alíquota menor</span>
+        <span class="chip"><b></b> Rendimento sobre valor bruto</span>
+        <span class="chip"><b></b> Sem dias parados</span>
+      </div>
+      <div class="cta-row"><a class="cta cta-lg" data-cta href="#">Acessar carteira <span>→</span></a></div>
+    </div>
+
+    <div class="hero-art">
+      <svg viewBox="0 0 480 340" role="img" aria-label="Curva de capital que continua subindo depois do vencimento, com a renovação mantendo o investimento em curso.">
+        <defs>
+          <linearGradient id="gFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="var(--green)" stop-opacity=".22"></stop>
+            <stop offset="100%" stop-color="var(--green)" stop-opacity="0"></stop>
+          </linearGradient>
+        </defs>
+        <path d="M30 276 C 110 258, 170 232, 232 196 C 300 157, 380 104, 452 58 L452 296 L30 296 Z" fill="url(#gFill)"></path>
+        <path class="drawn" id="heroLine" d="M30 276 C 110 258, 170 232, 232 196 C 300 157, 380 104, 452 58"
+          fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round"></path>
+        <line x1="232" y1="46" x2="232" y2="306" stroke="var(--line-2)" stroke-width="1" stroke-dasharray="4 5"></line>
+        <text class="tx" x="232" y="326" font-size="13" text-anchor="middle">vencimento original</text>
+        <circle cx="232" cy="196" r="7" fill="var(--white)" stroke="var(--green)" stroke-width="3"></circle>
+        <circle cx="452" cy="58" r="6" fill="var(--green)"></circle>
+        <text class="tx-g" x="452" y="38" font-size="14" text-anchor="end">a renovação mantém a curva</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO FUNCIONA ============ -->
+<section id="como" class="band-cream">
+  <div class="wrap sec">
+    <span class="tag">O que é</span>
+    <h2 class="h2 rv" style="margin-top:16px">Trocar de Debênture sem<br>tirar o dinheiro da aplicação</h2>
+    <p class="lede" style="margin-top:18px">Quando uma Debênture chega ao vencimento, o normal seria o valor voltar para o seu saldo. Na renovação, ele segue direto para outra Debênture. O investimento muda; o seu dinheiro continua investido o tempo inteiro.</p>
+
+    <div class="tl-rail">
+      <div class="tl-track"><div class="tl-fill" id="tlFill"></div></div>
+      <div class="tl-dots" role="tablist" aria-label="Pontos sobre a renovação">
+        <button class="tl-dot" role="tab" aria-selected="true"  data-i="0"><i></i><span>O que acontece ao renovar</span></button>
+        <button class="tl-dot" role="tab" aria-selected="false" data-i="1"><i></i><span>Como escolher</span></button>
+        <button class="tl-dot" role="tab" aria-selected="false" data-i="2"><i></i><span>O dinheiro sai?</span></button>
+        <button class="tl-dot" role="tab" aria-selected="false" data-i="3"><i></i><span>O prazo recomeça?</span></button>
+      </div>
+    </div>
+
+    <div class="tl-panel" aria-live="polite">
+      <span class="tl-step num" id="tlStep">01</span>
+      <div>
+        <h3 id="tlTitle">O que acontece quando eu renovo?</h3>
+        <p id="tlText">Ao fazer uma renovação, quando chega o vencimento da sua Debênture ela é renovada para o outro produto que você escolheu. Entre o fim de uma aplicação e o começo da próxima não existe janela: o dinheiro não deixa de render em momento nenhum.</p>
+        <span class="tl-ben" id="tlBen">Sem dias parados</span>
+      </div>
+      <button class="tl-next" id="tlNext" aria-label="Ver o próximo ponto">→</button>
+    </div>
+
+    <div class="cta-row"><a class="cta" data-cta href="#">Acessar carteira <span>→</span></a></div>
+  </div>
+</section>
+
+<!-- ============ NÚMEROS ============ -->
+<section id="numeros">
+  <div class="wrap sec">
+    <span class="tag">Exemplo hipotético · 18 meses</span>
+    <h2 class="h2 rv" style="margin-top:16px">Quanto a continuidade<br>pode representar</h2>
+    <p class="lede" style="margin-top:18px">Para entender o efeito da renovação, acompanhe a história de um investidor ao longo de 18 meses. Os valores são hipotéticos e servem só para ilustrar o conceito.</p>
+
+    <div class="story">
+      <div class="mo">
+        <span class="rail"><i></i></span>
+        <div class="mo-c">
+          <span class="mo-when">Mês 0 · a aplicação</span>
+          <h3>Ele aplica R$ 100.000 em uma Debênture</h3>
+          <p>A Debênture rende <strong>18% ao ano</strong> e tem prazo de <strong>6 meses</strong>. Durante esse período, o dinheiro trabalha e os rendimentos vão se acumulando.</p>
+        </div>
+      </div>
+
+      <div class="mo">
+        <span class="rail"><i></i></span>
+        <div class="mo-c">
+          <span class="mo-when">Mês 6 · o vencimento chega</span>
+          <h3>Os R$ 100.000 viraram R$ 108.627,80</h3>
+          <p>O investimento rendeu <strong>R$ 8.627,80</strong> em seis meses. É nesse momento que ele tem a oportunidade de renovar para outra Debênture, que rende <strong>22% ao ano por 12 meses</strong>. E é aqui que o caminho se divide.</p>
+        </div>
+      </div>
+
+      <div class="mo">
+        <span class="rail"><i></i></span>
+        <div class="mo-c">
+          <span class="mo-when">Mês 6 · a decisão</span>
+          <h3>Pagar imposto agora ou seguir com o valor bruto</h3>
+          <p>O Imposto de Renda incide sobre o rendimento, nunca sobre o valor aplicado. O que muda entre os dois caminhos é <strong>quando</strong> ele é cobrado e <strong>qual percentual</strong> se aplica.</p>
+
+          <div class="fork">
+            <div class="fk fk-no">
+              <b>Se ele resgatar o dinheiro</b>
+              <p>O imposto é cobrado na hora: 22,5% sobre os R$ 8.627,80 de rendimento, o que dá <strong>R$ 1.941,26</strong>. Para reaplicar, ele tem menos dinheiro do que tinha no vencimento.</p>
+              <span class="fk-v num">R$ 106.686,55</span>
+            </div>
+            <div class="fk fk-yes">
+              <b>Se ele renovar</b>
+              <p>Não há cobrança de imposto neste momento. O valor bruto segue aplicado e continua rendendo na nova Debênture, sem nenhum dia parado.</p>
+              <span class="fk-v num">R$ 108.627,80</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mo">
+        <span class="rail"><i></i></span>
+        <div class="mo-c">
+          <span class="mo-when">Mês 18 · a hora de acertar o imposto</span>
+          <h3>Doze meses depois, o prazo também conta</h3>
+          <p>Quem renovou chega aos <strong>18 meses de prazo acumulado</strong> e paga 17,5% sobre todo o rendimento do período, de uma vez só. Quem resgatou já tinha pago 22,5% lá atrás, e agora paga mais 17,5% sobre o rendimento da segunda aplicação. Dois impostos em vez de um, e o primeiro deles no percentual mais alto da tabela.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cmp">
+      <div class="chart-card">
+        <svg id="chart" viewBox="0 0 880 440" role="img" aria-labelledby="chTitle">
+          <title id="chTitle">Com renovação, o capital chega a R$ 126.833,89 líquidos em 18 meses. Resgatado e reaplicado, chegaria a R$ 126.050,16 líquidos.</title>
+        </svg>
+        <div class="clegend">
+          <span class="cl"><b style="background:var(--green)"></b> Com renovação</span>
+          <span class="cl" style="color:var(--muted)"><b style="background:var(--sec)"></b> Resgatado e reaplicado</span>
+          <span class="cl" style="color:var(--faint);font-weight:500">Linha: valor bruto · ponto final: líquido de IR</span>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div class="card card-win">
+          <span class="card-k">Com renovação</span>
+          <span class="card-v num" data-count="126833.89">R$ 126.833,89</span>
+          <span class="card-n">Líquido, após IR de 17,5% sobre o rendimento dos 18 meses</span>
+        </div>
+        <div class="card card-alt">
+          <span class="card-k">Resgatado e reaplicado</span>
+          <span class="card-v num" data-count="126050.16">R$ 126.050,16</span>
+          <span class="card-n">Líquido, após IR de 22,5% no 6º mês e 17,5% na nova operação</span>
+        </div>
+        <div class="card card-diff">
+          <span class="card-k">A mais com a renovação</span>
+          <span class="card-v num" data-count="783.73" data-prefix="+ ">+ R$ 783,73</span>
+          <span class="card-n">3,0% a mais de rendimento líquido no mesmo período</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="drivers">
+      <div class="drv">
+        <span class="drv-v num">+ R$ 352,34</span>
+        <div>
+          <h3>O dinheiro do imposto continuou trabalhando</h3>
+          <p>Os R$ 1.941,26 que iriam para o imposto no 6º mês seguem aplicados por mais 12 meses. Esse valor também rende, e o rendimento dele aparece no resultado final.</p>
+        </div>
+      </div>
+      <div class="drv">
+        <span class="drv-v num">+ R$ 431,39</span>
+        <div>
+          <h3>O imposto do primeiro período ficou menor</h3>
+          <p>O percentual do imposto cai conforme o tempo passa. Com o prazo continuando a contar, os R$ 8.627,80 dos primeiros 6 meses são tributados a 17,5% em vez de 22,5%.</p>
+        </div>
+      </div>
+    </div>
+
+    <details class="prem">
+      <summary>Premissas e memória de cálculo</summary>
+      <ul>
+        <li><strong>Valores hipotéticos</strong>, construídos para ilustrar o conceito. Não representam produto, oferta, projeção ou promessa de rentabilidade da GCB.</li>
+        <li><strong>Operação inicial:</strong> R$ 100.000 a 18% a.a. por 6 meses (180 dias) → R$ 108.627,80 brutos, com rendimento de R$ 8.627,80.</li>
+        <li><strong>Com renovação:</strong> os R$ 108.627,80 brutos seguem alocados a 22% a.a. por 12 meses → R$ 132.525,92 brutos. Rendimento total de R$ 32.525,92, tributado a 17,5% pelos 18 meses de contagem preservada (R$ 5.692,04) → <strong>R$ 126.833,89 líquidos</strong>.</li>
+        <li><strong>Resgatado e reaplicado:</strong> IR de 22,5% sobre o rendimento (R$ 1.941,26) → R$ 106.686,55 reaplicados a 22% a.a. por 12 meses → R$ 130.157,59 brutos. A nova operação dura 365 dias e se enquadra na faixa de 17,5%, com IR de R$ 4.107,43 → <strong>R$ 126.050,16 líquidos</strong>.</li>
+        <li><strong>Premissas condicionais da renovação:</strong> ausência de tributação intermediária e preservação da contagem de prazo para a tabela regressiva. Não são regras universais de renovação de Debêntures: dependem da estrutura jurídica da operação e estão sujeitas a validação tributária e de Compliance da GCB.</li>
+        <li>Taxas efetivas anuais com capitalização composta, sem aportes, sem resgates parciais e sem pagamentos intermediários de juros. Custos, taxas e demais tributos não considerados. O exemplo não considera dias sem alocação entre uma operação e outra.</li>
+      </ul>
+    </details>
+
+    <div class="cta-row"><a class="cta" data-cta href="#">Acessar carteira <span>→</span></a></div>
+  </div>
+</section>
+
+<!-- ============ IMPOSTO ============ -->
+<section id="imposto" class="band-sand">
+  <div class="wrap sec">
+    <span class="tag">Prazo e imposto</span>
+    <h2 class="h2 rv" style="margin-top:16px">Quanto mais tempo,<br>menor a alíquota</h2>
+    <p class="lede" style="margin-top:18px">O imposto incide sobre o rendimento, e o percentual cai conforme o prazo avança. Manter o investimento em curso faz o prazo trabalhar a seu favor.</p>
+
+    <div class="scale">
+      <div class="bands">
+        <div class="bd" style="flex:1 1 16.7%"><span class="bd-v num">22,5%</span><span class="bd-d">até 180 dias</span></div>
+        <div class="bd" style="flex:1 1 16.7%"><span class="bd-v num">20%</span><span class="bd-d">181 a 360</span></div>
+        <div class="bd" style="flex:1 1 33.3%"><span class="bd-v num">17,5%</span><span class="bd-d">361 a 720 dias</span></div>
+        <div class="bd" style="flex:1 1 33.3%"><span class="bd-v num">15%</span><span class="bd-d">acima de 720 dias</span></div>
+      </div>
+
+      <div class="pins">
+        <div class="pin pin-now">
+          <i></i>
+          <div>
+            <b>6 meses isolados: 22,5%</b>
+            <span>Prazo encerrado no primeiro vencimento, na faixa mais alta da tabela.</span>
+          </div>
+        </div>
+        <div class="pin pin-new">
+          <i></i>
+          <div>
+            <b>18 meses de contagem preservada: 17,5%</b>
+            <span>Com a renovação, o mesmo rendimento passa para uma faixa menor.</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="fine" style="margin-top:16px">A preservação da contagem pressupõe uma estrutura de renovação que a permita e depende do enquadramento de cada operação e de validação tributária. Existem ativos com tratamento próprio, fora desta tabela.</p>
+    </div>
+
+    <div class="cta-row"><a class="cta" data-cta href="#">Acessar carteira <span>→</span></a></div>
+  </div>
+</section>
+
+<!-- ============ BENEFÍCIOS ============ -->
+<section id="beneficios" class="band-cream">
+  <div class="wrap sec">
+    <span class="tag">Por que renovar</span>
+    <h2 class="h2 rv" style="margin-top:16px">Três efeitos sobre<br>o seu rendimento</h2>
+
+    <div class="bens">
+      <article class="ben">
+        <span class="ben-i">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 18 L9 18 L9 13"></path><path d="M10 18 L15 18 L15 9"></path><path d="M16 18 L21 18 L21 5"></path>
+          </svg>
+        </span>
+        <h3>Alíquota menor</h3>
+        <p>Com a contagem de prazo preservada, o rendimento é tributado por uma faixa mais baixa da tabela regressiva.</p>
+        <span class="ben-m">22,5% → 17,5%<small>no exemplo desta página</small></span>
+      </article>
+
+      <article class="ben">
+        <span class="ben-i">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="8"></circle><path d="M12 7.5 L12 12 L15 14"></path>
+          </svg>
+        </span>
+        <h3>Rendimento sobre o valor bruto</h3>
+        <p>Sem tributação intermediária, é o montante bruto que segue compondo a base de rendimento do período seguinte.</p>
+        <span class="ben-m">R$ 1.941 a mais<small>rendendo por 12 meses</small></span>
+      </article>
+
+      <article class="ben">
+        <span class="ben-i">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+            <path d="M3 16 C 7 16, 8 8, 12 8 C 16 8, 17 16, 21 16"></path><circle cx="12" cy="8" r="1.6" fill="var(--green)" stroke="none"></circle>
+          </svg>
+        </span>
+        <h3>Sem dias parados</h3>
+        <p>A renovação acontece antes do vencimento, evitando o intervalo entre a liquidação e a próxima aplicação.</p>
+        <span class="ben-m">Zero interrupção<small>entre uma operação e outra</small></span>
+      </article>
+    </div>
+
+    <div class="cta-row"><a class="cta" data-cta href="#">Acessar carteira <span>→</span></a></div>
+  </div>
+</section>
+
+<!-- ============ PASSOS + FAQ ============ -->
+<section id="passos">
+  <div class="wrap sec">
+    <span class="tag">Dúvidas frequentes</span>
+    <h2 class="h2 rv" style="margin-top:16px">Antes de decidir</h2>
+
+    <div class="faq" style="margin-top:clamp(28px,3.6vw,44px)">
+      <details>
+        <summary>A renovação é automática?</summary>
+        <p class="ans">Ao chegar na data de vencimento, sim. O valor é renovado automaticamente em uma Debênture de liquidez diária, que rende 90% do CDI. Assim o seu dinheiro não deixa de render e não há desconto de Imposto de Renda nesse momento. A partir daí a decisão é sua: você pode renovar para outra Debênture ou resgatar o valor para o seu saldo quando quiser.</p>
+      </details>
+      <details>
+        <summary>Posso renovar antes do vencimento?</summary>
+        <p class="ans">Pode, e é o caminho que mantém o seu capital em uma Debênture escolhida por você. A renovação automática para a Debênture de liquidez diária acontece só quando a data de vencimento chega. Antes disso, você pode renovar para outra Debênture, com prazo e taxa que façam sentido para os seus objetivos.</p>
+      </details>
+      <details>
+        <summary>Como escolho para qual Debênture quero renovar?</summary>
+        <p class="ans">Fale com o seu assessor de relacionamento. Ele conhece a sua carteira, acompanha o que está liquidando e pode ter ofertas exclusivas de renovação, com condições que não estão disponíveis de forma aberta.</p>
+      </details>
+      <details>
+        <summary>Posso renovar para outro tipo de ativo?</summary>
+        <p class="ans">Não. A renovação acontece de Debênture para Debênture. Para migrar o recurso para outra classe de ativo, o caminho é resgatar o valor e fazer uma nova aplicação.</p>
+      </details>
+      <details>
+        <summary>A taxa e o prazo são os mesmos da operação original?</summary>
+        <p class="ans">Não necessariamente. Cada Debênture tem prazo, taxa, risco e liquidez próprios, informados a você antes de decidir.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FECHO ============ -->
+<section style="border:0">
+  <div class="wrap" style="padding-block:clamp(10px,2vw,20px) clamp(52px,7vw,92px)">
+    <div class="close">
+      <h2>Veja se você tem Debênture liquidando.</h2>
+      <div>
+        <p style="margin-bottom:26px">Na sua carteira você acompanha os investimentos que estão próximos do vencimento e as datas de cada um.</p>
+        <a class="cta cta-lg" data-cta href="#">Acessar carteira <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <p><strong>Avisos.</strong> Conteúdo exclusivamente informativo e educacional. Não constitui recomendação, oferta ou solicitação de investimento, nem consultoria financeira, tributária ou jurídica. As simulações são hipotéticas e ilustram conceitos: não representam rentabilidade passada, projeção ou promessa de resultado.</p>
+    <p>Rentabilidade passada não garante rentabilidade futura. Todo investimento envolve riscos, inclusive de crédito, de mercado e de liquidez. Disponibilidade, condições, prazos, taxas e tratamento tributário de cada renovação dependem da estrutura específica da operação e são informados antes da decisão de investimento. Avalie a adequação ao seu perfil e aos seus objetivos antes de decidir e, em caso de dúvida, consulte o seu assessor de relacionamento e um profissional habilitado em matéria tributária.</p>
+    <p id="ctaWarn" hidden>Configuração pendente: definir a URL de destino do botão “Acessar carteira”.</p>
+  </div>
+</footer>
+</main>
+
+<script>
+/* =====================================================
+   CTA — URL centralizada. Trocar pelo endereço oficial.
+===================================================== */
+var CARTEIRA_URL = "__CARTEIRA_URL_PENDENTE__";
+
+(function(){
+  var ph = CARTEIRA_URL.indexOf("__") === 0, href = CARTEIRA_URL;
+  if (!ph) {
+    try {
+      var d = new URL(CARTEIRA_URL, location.href), q = new URLSearchParams(location.search);
+      ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","gclid","fbclid"].forEach(function(k){
+        var v = q.get(k); if (v && !d.searchParams.has(k)) d.searchParams.set(k, v);
+      });
+      href = d.toString();
+    } catch(e){}
+  }
+  document.querySelectorAll("[data-cta]").forEach(function(a){
+    if (ph) { a.setAttribute("aria-disabled","true"); a.addEventListener("click", function(e){ e.preventDefault(); }); }
+    else { a.href = href; a.target = "_blank"; a.rel = "noopener"; }
+  });
+  var w = document.getElementById("ctaWarn"); if (ph && w) w.hidden = false;
+})();
+
+/* ---------- barra de leitura ---------- */
+(function(){
+  var b = document.getElementById("readbar"); if(!b) return;
+  function t(){
+    var h = document.documentElement.scrollHeight - innerHeight;
+    b.style.width = (h>0 ? Math.min(1,Math.max(0,scrollY/h))*100 : 0).toFixed(2) + "%";
+  }
+  addEventListener("scroll", t, {passive:true}); addEventListener("resize", t); t();
+})();
+
+/* ---------- trilha interativa ---------- */
+(function(){
+  var STEPS = [
+    ["01","O que acontece quando eu renovo?","Ao fazer uma renovação, quando chega o vencimento da sua Debênture ela é renovada para o outro produto que você escolheu. Entre o fim de uma aplicação e o começo da próxima não existe janela: o dinheiro não deixa de render em momento nenhum.","Sem dias parados"],
+    ["02","Como eu escolho a nova Debênture?","Antes do vencimento, você escolhe para qual Debênture quer renovar, com o prazo e a taxa que façam sentido para os seus objetivos. Seu assessor de relacionamento pode ter ofertas exclusivas de renovação.","Prazo e taxa que você escolhe"],
+    ["03","O dinheiro chega a sair da aplicação?","Não. O capital vai direto de uma Debênture para a outra, sem passar pelo seu saldo. Não havendo resgate, o Imposto de Renda não é descontado naquele momento: é o valor bruto que segue rendendo no período seguinte.","Rendimento sobre o valor bruto"],
+    ["04","E o prazo, recomeça do zero?","A nova Debênture tem prazo, taxa e vencimento próprios. Já a contagem de tempo para o Imposto de Renda continua de onde parou, quando a estrutura da operação permite, e a alíquota que incide sobre o seu rendimento segue caindo.","Menos IR"]
+  ];
+  var dots = [].slice.call(document.querySelectorAll(".tl-dot"));
+  var bar = document.getElementById("tlFill"), next = document.getElementById("tlNext");
+  var es = document.getElementById("tlStep"), et = document.getElementById("tlTitle"),
+      ex = document.getElementById("tlText"), eb = document.getElementById("tlBen");
+  var cur = 0;
+  function go(i){
+    cur = i;
+    dots.forEach(function(d, k){ d.setAttribute("aria-selected", k === i ? "true" : "false"); });
+    bar.style.width = (12.5 + i * 25) + "%";
+    es.textContent = STEPS[i][0]; et.textContent = STEPS[i][1];
+    ex.textContent = STEPS[i][2]; eb.textContent = STEPS[i][3];
+  }
+  dots.forEach(function(d){
+    var i = +d.dataset.i;
+    ["click","mouseenter","focus"].forEach(function(ev){ d.addEventListener(ev, function(){ go(i); }); });
+  });
+  if (next) next.addEventListener("click", function(){ go((cur + 1) % STEPS.length); });
+  go(0);
+})();
+
+/* =====================================================
+   GRÁFICO — exemplo fixo de 18 meses
+===================================================== */
+(function(){
+  var P = 100000, R1 = 0.18, R2 = 0.22;
+  var g6   = P * Math.pow(1+R1, 0.5);        // 108.627,80
+  var ir1  = 0.225 * (g6 - P);               //   1.941,26
+  var liq6 = g6 - ir1;                       // 106.686,55
+  var g18S = liq6 * (1+R2);                  // 130.157,59
+  var netS = g18S - 0.175 * (g18S - liq6);   // 126.050,16
+  var g18R = g6 * (1+R2);                    // 132.525,92
+  var netR = g18R - 0.175 * (g18R - P);      // 126.833,89
+
+  function BRL(v, d){ return "R$ " + v.toLocaleString("pt-BR", {minimumFractionDigits:d||0, maximumFractionDigits:d||0}); }
+  var NS = "http://www.w3.org/2000/svg";
+  function mk(t, a, txt){
+    var n = document.createElementNS(NS, t);
+    for (var k in a) n.setAttribute(k, a[k]);
+    if (txt != null) n.textContent = txt;
+    return n;
+  }
+
+  var svg = document.getElementById("chart"), paths = [];
+
+  function draw(){
+    while (svg.childNodes.length > 1) svg.removeChild(svg.lastChild);
+    paths = [];
+
+    var narrow = innerWidth < 640;
+    var W = narrow ? 460 : 880, H = narrow ? 400 : 440;
+    var ML = narrow ? 10 : 12, MR = narrow ? 10 : 152, MT = narrow ? 104 : 44, MB = 40;
+    var FS = narrow ? 13 : 13;
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+
+    var x = function(m){ return ML + (W-ML-MR) * (m/18); };
+    var lo = 97000, hi = 135000;
+    var y = function(v){ return MT + (H-MT-MB) * (1 - (v-lo)/(hi-lo)); };
+
+    var defs = mk("defs");
+    var lg = mk("linearGradient", {id:"cFill", x1:"0", y1:"0", x2:"0", y2:"1"});
+    lg.appendChild(mk("stop", {offset:"0%", "stop-color":"var(--green)", "stop-opacity":".16"}));
+    lg.appendChild(mk("stop", {offset:"100%", "stop-color":"var(--green)", "stop-opacity":"0"}));
+    defs.appendChild(lg); svg.appendChild(defs);
+
+    // grade discreta
+    [105000, 115000, 125000].forEach(function(v){
+      svg.appendChild(mk("line", {x1:ML, y1:y(v), x2:x(18), y2:y(v), class:"gl"}));
+    });
+    svg.appendChild(mk("line", {x1:ML, y1:y(100000), x2:x(18), y2:y(100000), class:"gl2"}));
+    svg.appendChild(mk("text", {x:ML+2, y:y(100000)+17, class:"tx", "font-size":FS}, "R$ 100 mil investidos"));
+
+    [0,6,12,18].forEach(function(m){
+      svg.appendChild(mk("text", {
+        x:x(m), y:H-MB+22, class:"tx", "font-size":FS,
+        "text-anchor": m===0 ? "start" : (m===18 ? "end" : "middle")
+      }, "mês " + m));
+    });
+
+    svg.appendChild(mk("line", {x1:x(6), y1:MT-6, x2:x(6), y2:H-MB, class:"gl2", "stroke-dasharray":"4 5"}));
+    svg.appendChild(mk("text", {x:x(6), y:MT-14, class:"tx-i", "font-size":FS, "text-anchor":"middle"}, "vencimento original"));
+
+    function seg(a, b, fn){
+      var d = "";
+      for (var m = a; m <= b + 0.001; m += 0.5) d += (d ? "L" : "M") + x(m).toFixed(1) + " " + y(fn(m)).toFixed(1);
+      return d;
+    }
+    var fCommon = function(m){ return P*Math.pow(1+R1, m/12); };
+    var fS = function(m){ return liq6*Math.pow(1+R2, (m-6)/12); };
+    var fR = function(m){ return g6*Math.pow(1+R2, (m-6)/12); };
+    var dCommon = seg(0, 6, fCommon), dS = seg(6, 18, fS), dR = seg(6, 18, fR);
+
+    // área sob a curva da renovação
+    svg.appendChild(mk("path", {d: dCommon + " " + dR.replace("M","L") + " L" + x(18) + " " + y(lo) + " L" + x(0) + " " + y(lo) + " Z", fill:"url(#cFill)", stroke:"none"}));
+
+    // cenário de liquidação, em segundo plano
+    svg.appendChild(mk("line", {x1:x(6), y1:y(g6), x2:x(6), y2:y(liq6), stroke:"var(--sec)", "stroke-width":"2.4", "stroke-linecap":"round"}));
+    var pS = mk("path", {d:dS, fill:"none", stroke:"var(--sec)", "stroke-width":"2.4", "stroke-linecap":"round", class:"drawn"});
+    svg.appendChild(pS);
+
+    // renovação, em destaque
+    svg.appendChild(mk("path", {d:dCommon, fill:"none", stroke:"var(--green)", "stroke-width":"3.2", "stroke-linecap":"round"}));
+    var pR = mk("path", {d:dR, fill:"none", stroke:"var(--green)", "stroke-width":"3.2", "stroke-linecap":"round", class:"drawn"});
+    svg.appendChild(pR);
+    paths.push(pS, pR);
+
+    svg.appendChild(mk("circle", {cx:x(6), cy:y(g6), r:6, fill:"var(--white)", stroke:"var(--green)", "stroke-width":"3"}));
+    svg.appendChild(mk("circle", {cx:x(6), cy:y(liq6), r:4, fill:"var(--sec)"}));
+    svg.appendChild(mk("text", {
+      x: narrow ? x(6) : x(6) - 10,
+      y: narrow ? y(liq6) + 22 : y(liq6) + 6,
+      class:"tx-s", "font-size":FS, "text-anchor": narrow ? "middle" : "end"
+    }, "− IR " + BRL(ir1, 0)));
+
+    // quedas finais até o valor líquido
+    [[g18S, netS, "var(--sec)"], [g18R, netR, "var(--green)"]].forEach(function(s){
+      svg.appendChild(mk("line", {x1:x(18), y1:y(s[0]), x2:x(18), y2:y(s[1]), stroke:s[2], "stroke-width":"2.2", "stroke-dasharray":"2 3"}));
+      svg.appendChild(mk("circle", {cx:x(18), cy:y(s[1]), r:5, fill:s[2]}));
+    });
+
+    // rótulos finais, fora da área do traçado para não sobrepor
+    if (narrow){
+      svg.appendChild(mk("text", {x:ML, y:24, class:"tx-g", "font-size":15}, "Com renovação  " + BRL(netR, 2)));
+      svg.appendChild(mk("text", {x:ML, y:48, class:"tx-s", "font-size":15}, "Resgatado  " + BRL(netS, 2)));
+      svg.appendChild(mk("text", {x:ML, y:72, class:"tx-g", "font-size":14}, "Diferença  + " + BRL(netR-netS, 2)));
+    } else {
+      var bx = x(18) + 16, yR = y(netR), yS = y(netS);
+      // afasta os dois rótulos para que nunca se toquem
+      var mid = (yR + yS) / 2;
+      yR = mid - 26; yS = mid + 26;
+      svg.appendChild(mk("path", {d:"M"+(x(18)+5)+" "+y(netR)+" L"+(bx-6)+" "+(yR-5), stroke:"var(--green)", "stroke-width":"1", fill:"none", opacity:".5"}));
+      svg.appendChild(mk("path", {d:"M"+(x(18)+5)+" "+y(netS)+" L"+(bx-6)+" "+(yS-5), stroke:"var(--sec)", "stroke-width":"1", fill:"none", opacity:".7"}));
+      svg.appendChild(mk("text", {x:bx, y:yR-8, class:"tx-g", "font-size":13}, "Com renovação"));
+      svg.appendChild(mk("text", {x:bx, y:yR+11, class:"tx-g", "font-size":15}, BRL(netR, 2)));
+      svg.appendChild(mk("text", {x:bx, y:yS-8, class:"tx-s", "font-size":13}, "Resgatado e reaplicado"));
+      svg.appendChild(mk("text", {x:bx, y:yS+11, class:"tx-s", "font-size":15}, BRL(netS, 2)));
+    }
+
+    paths.forEach(function(p){
+      try { var L = p.getTotalLength(); p.style.setProperty("--len", L); p.style.strokeDasharray = L; } catch(e){}
+    });
+  }
+
+  draw();
+  var rt; addEventListener("resize", function(){ clearTimeout(rt); rt = setTimeout(draw, 180); });
+
+  /* ---------- revelações ---------- */
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var hero = document.getElementById("heroLine");
+  if (hero){ try { var hl = hero.getTotalLength(); hero.style.setProperty("--len", hl); hero.style.strokeDasharray = hl; } catch(e){} }
+
+  if ("IntersectionObserver" in window && !reduce){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        e.target.classList.add("is-anim");
+        io.unobserve(e.target);
+        if (e.target === svg) paths.forEach(function(p){ p.classList.add("is-anim"); });
+        if (e.target.dataset && e.target.dataset.count) count(e.target);
+      });
+    }, {threshold:.25, rootMargin:"0px 0px -8% 0px"});
+    document.querySelectorAll(".rv, .bd, [data-count]").forEach(function(el){ io.observe(el); });
+    io.observe(svg);
+    if (hero) hero.classList.add("is-anim");
+  }
+
+  function count(el){
+    var target = parseFloat(el.dataset.count), pre = el.dataset.prefix || "", t0 = null;
+    function step(ts){
+      if (!t0) t0 = ts;
+      var k = Math.min(1, (ts-t0)/900), e = 1 - Math.pow(1-k, 3);
+      el.textContent = pre + "R$ " + (target*e).toLocaleString("pt-BR", {minimumFractionDigits:2, maximumFractionDigits:2});
+      if (k < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+})();
+</script>
+
+</body></html>
