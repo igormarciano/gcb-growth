@@ -1,5 +1,45 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Renovação de Debêntures</title>
+<link rel="preload" href="/fonts/LeksikalFlare-Bold.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="/fonts/HostGrotesk-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/fonts/HostGrotesk-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/fonts/HostGrotesk-Bold.ttf" as="font" type="font/ttf" crossorigin>
+<div id="gcbGate" style="position:fixed;inset:0;z-index:9999;background:#FAF8F3;display:flex;align-items:center;justify-content:center;padding:20px;">
+  <form id="gcbGateForm" style="background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:32px 28px;max-width:340px;width:100%;text-align:center;font-family:'Host Grotesk','Inter',system-ui,sans-serif;">
+    <div style="font-size:13px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#3F6E26;margin-bottom:10px;">Acesso restrito</div>
+    <p style="font-size:14px;color:#4C4A36;margin:0 0 18px;line-height:1.5;">Digite a senha para continuar.</p>
+    <input id="gcbGatePass" type="password" placeholder="Senha" autocomplete="off" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid rgba(0,0,0,.12);border-radius:9999px;font-family:inherit;font-size:14px;margin-bottom:12px;text-align:center;">
+    <div id="gcbGateError" style="display:none;color:#C07428;font-size:12.5px;margin-bottom:12px;">Senha incorreta.</div>
+    <button type="submit" style="width:100%;padding:12px 14px;border:none;border-radius:9999px;background:#88BC6C;color:#25230F;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer;">Entrar</button>
+  </form>
+</div>
+<script>
+(function(){
+  var PASS = 'Gcb*2026';
+  var gate = document.getElementById('gcbGate');
+  function getAuthed(){ try { return sessionStorage.getItem('gcbAuthed') === '1'; } catch(e){ return false; } }
+  function setAuthed(){ try { sessionStorage.setItem('gcbAuthed', '1'); } catch(e){} }
+  if (getAuthed()) { gate.remove(); } else {
+    document.documentElement.style.overflow = 'hidden';
+    var form = document.getElementById('gcbGateForm');
+    var input = document.getElementById('gcbGatePass');
+    var err = document.getElementById('gcbGateError');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (input.value === PASS) {
+        setAuthed();
+        document.documentElement.style.overflow = '';
+        gate.remove();
+      } else {
+        err.style.display = 'block';
+        input.value = '';
+        input.focus();
+      }
+    });
+    input.focus();
+  }
+})();
+</script>
 <style>
 @font-face{font-family:'Host Grotesk';src:url('/fonts/HostGrotesk-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:'Host Grotesk';src:url('/fonts/HostGrotesk-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap}
@@ -115,7 +155,7 @@ img{display:block}
 .tl-panel p{font-size:15.5px;color:var(--ink-2);max-width:60ch}
 .tl-ben{display:inline-flex;align-items:center;gap:9px;background:var(--green-wash);color:var(--green-d);border-radius:999px;padding:7px 15px 7px 12px;font-size:13.5px;font-weight:700;margin-top:14px}
 .tl-ben::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);flex:none}
-.tl-next{width:48px;height:48px;border-radius:50%;border:0;background:var(--green);color:#fff;font-size:21px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:background .2s,transform .2s}
+.tl-next{width:48px;height:48px;border-radius:50%;border:0;background:var(--green);color:#fff;font-family:var(--sans);font-size:21px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none;transition:background .2s,transform .2s}
 .tl-next:hover{background:var(--green-d);transform:translateX(2px)}
 @media(max-width:660px){.tl-next{grid-column:1;width:42px;height:42px;font-size:19px}}
 
