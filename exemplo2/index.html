@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CRI FH Jockey | CDI + 4,00% a.a. | GCB</title>
+<meta name="description" content="CRI FH Jockey: financiamento para término de obras de 7 casas de alto padrão no Morumbi. Rentabilidade prevista de CDI + 4,00% a.a., juros mensais, a partir de R$ 1.000.">
+<link rel="preload" href="/fonts/LeksikalFlare-Bold.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="/fonts/HostGrotesk-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/fonts/HostGrotesk-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="/fonts/HostGrotesk-Bold.ttf" as="font" type="font/ttf" crossorigin>
+<style>
+@font-face{font-family:'Host Grotesk';src:url('/fonts/HostGrotesk-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Host Grotesk';src:url('/fonts/HostGrotesk-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Host Grotesk';src:url('/fonts/HostGrotesk-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Leksikal Flare';src:url('/fonts/LeksikalFlare-Bold.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap}
+:root{
+  --moss:#312F14; --moss-2:#403E27; --moss-3:#25230F;
+  --green:#88BC6C; --green-d:#6FA253;
+  --sand:#EFEBDD; --sand-2:#F7F5EE; --paper:#F7F5EE; --ink:#212121; --muted:#55523A;
+  --r:20px; --r-lg:28px;
+  --shadow:0 10px 34px rgba(49,47,20,.08), 0 2px 8px rgba(49,47,20,.05);
+  --shadow-lg:0 24px 60px rgba(37,35,15,.14), 0 6px 18px rgba(37,35,15,.08);
+  --font:'Host Grotesk','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --head:'Leksikal Flare','Host Grotesk',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 20px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--green-d)}
+.dark .eyebrow{color:var(--green)}
+h1,h2,h3{font-family:var(--head);line-height:1.08;letter-spacing:-.02em;font-weight:700}
+h2{font-size:clamp(28px,4.4vw,44px);margin:12px 0 16px}
+h3{font-size:20px;letter-spacing:-.01em}
+.lead{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:640px}
+.dark .lead{color:#cfd3bf}
+section{padding:72px 0}
+.dark{background:var(--moss);color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 28px;border-radius:999px;font:600 16px var(--font);text-decoration:none;border:0;cursor:pointer;transition:transform .15s,background .15s}
+.btn-primary{background:var(--green);color:var(--moss)}
+.btn-primary:hover{background:#9DCC84;transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+.btn-ghost:hover{border-color:var(--green);color:var(--green)}
+.btn:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:rgba(49,47,20,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center}
+.nav .btn{min-height:40px;padding:0 20px;font-size:14px}
+
+/* hero */
+.hero{padding:56px 0 72px;background:
+  radial-gradient(900px 400px at 85% -10%,rgba(136,188,108,.16),transparent 60%),var(--moss)}
+.hero-grid{display:grid;gap:40px;align-items:center}
+.hero h1{font-size:clamp(38px,7vw,68px);margin:16px 0 20px}
+.hero h1 em{font-style:normal;color:var(--green)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.micro{font-size:13px;color:#aeb39c;margin-top:16px;max-width:520px}
+.card-offer{background:linear-gradient(160deg,var(--moss-2),var(--moss-3));border:1px solid rgba(136,188,108,.28);border-radius:var(--r-lg);padding:28px}
+.card-offer .lbl{font-size:13px;color:#aeb39c}
+.card-offer .big{font-size:clamp(44px,8vw,64px);font-weight:700;color:var(--green);letter-spacing:-.03em;line-height:1.05;margin:4px 0 2px}
+.card-offer .big small{font-size:.32em;color:#cfd3bf;font-weight:500;letter-spacing:0;margin-left:6px}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:20px 16px;margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12)}
+.kv b{display:block;font-size:18px;font-weight:600}
+.kv span{font-size:13px;color:#aeb39c}
+.badge{display:inline-block;margin-top:20px;font-size:12px;padding:6px 12px;border-radius:999px;background:rgba(136,188,108,.14);color:var(--green)}
+
+/* proof strip */
+.strip{background:var(--sand);padding:0}
+.strip-grid{display:grid;grid-template-columns:1fr 1fr}
+.stat{padding:28px 20px;border-bottom:1px solid rgba(49,47,20,.1)}
+.stat b{display:block;font-size:clamp(28px,4.4vw,44px);letter-spacing:-.03em;color:var(--moss);line-height:1.1}
+.stat span{font-size:14px;color:var(--muted)}
+
+/* thesis */
+.split{display:grid;gap:40px;align-items:center}
+.ph{border-radius:var(--r-lg);overflow:hidden;background:var(--sand)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph figcaption{font-size:12px;color:var(--muted);padding:10px 14px;background:var(--sand-2)}
+.dark .ph figcaption{background:var(--moss-3);color:#aeb39c}
+.facts{display:grid;gap:12px;margin-top:28px}
+.fact{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;background:#fff;border:1px solid var(--sand);border-radius:var(--r)}
+.fact i{flex:none;width:8px;height:8px;border-radius:50%;background:var(--green-d);margin-top:9px}
+.fact p{font-size:15px}
+
+/* protection */
+.steps{display:grid;gap:16px;margin-top:40px;counter-reset:s}
+.step{background:var(--moss-2);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:24px;counter-increment:s}
+.step::before{content:counter(s);display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--green);color:var(--moss);font-weight:700;margin-bottom:16px}
+.step p{color:#cfd3bf;font-size:15px;margin-top:8px}
+.guar{display:grid;gap:12px;margin-top:40px}
+.guar div{padding:20px;border-radius:var(--r);background:rgba(136,188,108,.1);border:1px solid rgba(136,188,108,.25);font-size:15px}
+.guar b{display:block;color:var(--green);margin-bottom:4px}
+
+/* ratio */
+.ratio{background:#fff;border:1px solid var(--sand);border-radius:var(--r-lg);padding:28px;margin-top:32px}
+.bar-row{margin:18px 0}
+.bar-row .t{display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px;font-weight:500}
+.track{height:18px;border-radius:999px;background:var(--sand);overflow:hidden}
+.fill{height:100%;border-radius:999px;background:var(--green-d);width:0;transition:width 1.2s cubic-bezier(.2,.7,.2,1)}
+.fill.min{background:var(--moss)}
+.note{font-size:13px;color:var(--muted);margin-top:16px}
+
+/* gallery */
+.gal{display:grid;gap:16px;margin-top:32px}
+.timeline{margin-top:32px;display:grid;gap:12px}
+.timeline .fact{background:var(--moss-2);border-color:rgba(255,255,255,.08)}
+.timeline .fact p{color:#e6e8dc}
+
+/* team */
+.team{display:grid;gap:16px;margin-top:32px}
+.team div{background:#fff;border:1px solid var(--sand);border-radius:var(--r);padding:24px}
+.team p{font-size:15px;color:var(--muted);margin-top:8px}
+
+/* sim */
+.sim{background:var(--sand)}
+.sim-box{display:grid;gap:28px;background:#fff;border-radius:var(--r-lg);padding:28px;border:1px solid var(--sand);margin-top:32px}
+label{font-size:14px;font-weight:600;display:block;margin-bottom:8px}
+input[type=number]{width:100%;min-height:52px;font:500 18px var(--font);padding:0 16px;border-radius:12px;border:1.5px solid var(--sand);background:var(--paper)}
+input[type=range]{width:100%;accent-color:var(--moss);margin-top:12px}
+.hint{font-size:12px;color:var(--muted);margin-top:6px}
+.out{background:var(--moss);color:#fff;border-radius:var(--r);padding:24px}
+.out .m{font-size:clamp(34px,6vw,48px);font-weight:700;color:var(--green);letter-spacing:-.03em;line-height:1.1}
+.out .row{display:flex;justify-content:space-between;gap:12px;font-size:14px;color:#cfd3bf;padding-top:12px;margin-top:12px;border-top:1px solid rgba(255,255,255,.12)}
+
+/* risks */
+.risk{display:grid;gap:12px;margin-top:32px}
+.risk li{list-style:none;padding:18px 20px;background:#fff;border:1px solid var(--sand);border-left:4px solid var(--moss);border-radius:12px;font-size:15px}
+
+/* faq */
+details{border-bottom:1px solid rgba(49,47,20,.15);padding:20px 0}
+summary{cursor:pointer;font-weight:600;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font-size:24px;line-height:1;color:var(--green-d)}
+details[open] summary::after{content:"\2212"}
+details p{margin-top:12px;color:var(--muted);max-width:720px}
+
+/* final */
+.final{text-align:center;padding:88px 0}
+.final .lead{margin:0 auto 32px}
+footer{background:var(--moss-3);color:#aeb39c;padding:48px 0;font-size:12.5px;line-height:1.65}
+footer b{color:#fff}
+footer p{margin-top:12px;max-width:900px}
+
+/* sticky mobile cta */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:12px 16px;background:rgba(49,47,20,.96);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;gap:12px;transform:translateY(110%);transition:transform .25s}
+.sticky.on{transform:none}
+.sticky span{font-size:13px;color:#cfd3bf;line-height:1.3}
+.sticky b{color:var(--green);font-size:16px;display:block}
+.sticky .btn{min-height:44px;padding:0 20px;font-size:14px}
+
+@media(min-width:760px){
+  .wrap{padding:0 32px}
+  section{padding:104px 0}
+  .hero-grid{grid-template-columns:1.15fr .85fr}
+  .strip-grid{grid-template-columns:repeat(4,1fr)}
+  .stat{border-bottom:0;border-right:1px solid rgba(49,47,20,.1);padding:36px 24px}
+  .stat:last-child{border-right:0}
+  .split{grid-template-columns:1fr 1fr;gap:64px}
+  .split.rev .ph{order:2}
+  .steps{grid-template-columns:repeat(4,1fr)}
+  .guar{grid-template-columns:repeat(3,1fr)}
+  .gal{grid-template-columns:1fr 1fr}
+  .gal .wide{grid-column:1/-1}
+  .team{grid-template-columns:repeat(3,1fr)}
+  .sim-box{grid-template-columns:1fr 1fr;padding:40px;gap:48px}
+  .sticky{display:none}
+}
+/* DS: numeros em Leksikal Flare, profundidade e hover nos cards */
+.card-offer .big,.stat b,.out .m,.kv b{font-family:var(--head);font-weight:700}
+.card-offer .big small{font-family:var(--font);font-weight:500}
+.fact,.team div,.risk li,.ratio,.sim-box{box-shadow:var(--shadow)}
+.timeline .fact{box-shadow:none}
+.fact,.team div{transition:transform .18s ease,box-shadow .18s ease}
+.fact:hover,.team div:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.timeline .fact:hover{box-shadow:0 20px 44px rgba(0,0,0,.28)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="gcbGate" style="position:fixed;inset:0;z-index:9999;background:#F7F5EE;display:flex;align-items:center;justify-content:center;padding:20px;">
+  <form id="gcbGateForm" style="background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:32px 28px;max-width:340px;width:100%;text-align:center;font-family:'Host Grotesk','Inter',system-ui,sans-serif;">
+    <div style="font-size:13px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--green-deep,#6FA253);margin-bottom:10px;">Acesso restrito</div>
+    <p style="font-size:14px;color:#444;margin:0 0 18px;line-height:1.5;">Digite a senha para continuar.</p>
+    <input id="gcbGatePass" type="password" placeholder="Senha" autocomplete="off" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid rgba(0,0,0,.12);border-radius:9999px;font-size:14px;margin-bottom:12px;text-align:center;">
+    <div id="gcbGateError" style="display:none;color:#C07428;font-size:12.5px;margin-bottom:12px;">Senha incorreta.</div>
+    <button type="submit" style="width:100%;padding:12px 14px;border:none;border-radius:9999px;background:var(--green,#88BC6C);color:#25230F;font-weight:700;font-size:14px;cursor:pointer;">Entrar</button>
+  </form>
+</div>
+<script>
+(function(){
+  var PASS = 'Gcb*2026';
+  var gate = document.getElementById('gcbGate');
+  function getAuthed(){ try { return sessionStorage.getItem('gcbAuthed') === '1'; } catch(e){ return false; } }
+  function setAuthed(){ try { sessionStorage.setItem('gcbAuthed', '1'); } catch(e){} }
+  if (getAuthed()) { gate.remove(); } else {
+    document.documentElement.style.overflow = 'hidden';
+    var form = document.getElementById('gcbGateForm');
+    var input = document.getElementById('gcbGatePass');
+    var err = document.getElementById('gcbGateError');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (input.value === PASS) {
+        setAuthed();
+        document.documentElement.style.overflow = '';
+        gate.remove();
+      } else {
+        err.style.display = 'block';
+        input.value = '';
+        input.focus();
+      }
+    });
+    input.focus();
+  }
+})();
+</script>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#topo" aria-label="GCB Investimentos"><img src="/logo-branco.png" alt="GCB Investimentos" style="display:block;height:26px;width:auto"></a>
+    <a class="btn btn-primary" href="#investir" data-cta="nav">Quero investir</a>
+  </div>
+</header>
+
+<main id="topo">
+
+<!-- HERO -->
+<section class="hero dark">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">CRI FH Jockey &middot; Morumbi, São Paulo</span>
+      <h1>CDI + 4,00% ao ano. <em>Juros todo mês.</em></h1>
+      <p class="lead">Você financia o término de 7 casas de alto padrão no Morumbi. As vendas entram numa conta escrow que só a GCB movimenta e pagam o seu retorno.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#investir" data-cta="hero-primary">Quero investir a partir de R$ 1.000</a>
+        <a class="btn btn-ghost" href="#protecao" data-cta="hero-secondary">Ver como o capital é protegido</a>
+      </div>
+      <p class="micro">Rentabilidade prevista, sujeita a riscos. Não é garantida e não conta com cobertura do FGC. Leia as informações essenciais antes de investir.</p>
+    </div>
+    <aside class="card-offer" aria-label="Resumo da oferta">
+      <div class="lbl">Rentabilidade prevista</div>
+      <div class="big">CDI+4,00%<small>ao ano</small></div>
+      <div class="kv">
+        <div><b>R$ 1.000</b><span>Investimento mínimo</span></div>
+        <div><b>Mensal</b><span>Pagamento de juros</span></div>
+        <div><b>11/2029</b><span>Vencimento previsto</span></div>
+        <div><b>CRI</b><span>Série única, 293ª emissão</span></div>
+      </div>
+      <span class="badge">Garantias reais e escrow</span>
+    </aside>
+  </div>
+</section>
+
+<!-- PROVA -->
+<div class="strip">
+  <div class="wrap strip-grid">
+    <div class="stat"><b>1.044%</b><span>Índice de garantia no relatório de jul/2026. O mínimo exigido é 140%.</span></div>
+    <div class="stat"><b>25,88%</b><span>Avanço físico da obra, aferido por empresa terceirizada.</span></div>
+    <div class="stat"><b>R$ 3 mi</b><span>Já aplicados pelos sócios com recursos próprios, antes do crédito.</span></div>
+    <div class="stat"><b>R$ 47 mi</b><span>VGV estimado do projeto.</span></div>
+  </div>
+</div>
+
+<!-- TESE -->
+<section id="tese">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow">A tese</span>
+      <h2>Alto padrão num bairro que está se reposicionando.</h2>
+      <p class="lead">O Morumbi trocou mansões de baixa liquidez e alto custo de reforma por condomínios de casas menores, mais modernas e com mais segurança. O FH Jockey nasce nesse movimento.</p>
+      <div class="facts">
+        <div class="fact"><i></i><p><b>7 casas geminadas</b> no Jardim Everest, de 430 a 612 m², em 4 andares com rooftop e jardim privativo.</p></div>
+        <div class="fact"><i></i><p><b>Preço de lançamento próximo ao mercado:</b> cerca de R$ 14,0 mil/m², contra média de R$ 13,7 mil/m² em imóveis novos e semelhantes da região.</p></div>
+        <div class="fact"><i></i><p><b>Acesso rápido</b> à Av. Francisco Morato, Av. Rebouças, Marginal Pinheiros e Rodovia Raposo Tavares.</p></div>
+      </div>
+    </div>
+    <figure class="ph"><img src="/fotos/cri-fh-jockey/corte-casa-tipo.jpg" alt="Corte em perspectiva de uma casa tipo do FH Jockey" loading="lazy"><figcaption>Corte em perspectiva de uma casa tipo.</figcaption></figure>
+  </div>
+</section>
+
+<!-- PROTEÇÃO -->
+<section id="protecao" class="dark">
+  <div class="wrap">
+    <span class="eyebrow">Estrutura da operação</span>
+    <h2>Quem controla o dinheiro é a GCB.</h2>
+    <p class="lead">Os sócios só acessam os recursos da SPE depois da quitação integral da dívida.</p>
+    <div class="steps">
+      <div class="step"><h3>Dívida avalizada</h3><p>A SPE do projeto emite a dívida, avalizada pelos sócios diretos e indiretos.</p></div>
+      <div class="step"><h3>Obra paga pela GCB</h3><p>Os custos mensais passam pelo time de monitoramento. Aprovados, a própria GCB paga fornecedores com o crédito.</p></div>
+      <div class="step"><h3>Vendas na conta escrow</h3><p>Todo recebimento cai numa conta que só a GCB movimenta. Paga juros e amortiza a dívida.</p></div>
+      <div class="step"><h3>Sócios por último</h3><p>Os sócios só têm acesso aos recursos após a quitação integral da dívida.</p></div>
+    </div>
+    <div class="guar">
+      <div><b>Alienação fiduciária</b>De imóveis e das cotas da SPE do projeto.</div>
+      <div><b>Cessão fiduciária</b>De recebíveis das vendas das residências.</div>
+      <div><b>Aval pessoal e corporativo</b>Dos sócios e controladores.</div>
+    </div>
+  </div>
+</section>
+
+<!-- RAZÃO DE GARANTIA -->
+<section>
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow">Razão de garantia</span>
+      <h2>Para cada R$ 1 de dívida, R$ 10,44 em garantia.</h2>
+      <p class="lead">Estoque do projeto, recebíveis das vendas e saldos dos fundos, divididos pelo saldo atualizado da dívida. O contrato exige no mínimo 140%.</p>
+    </div>
+    <div class="ratio" id="ratio">
+      <div class="bar-row"><div class="t"><span>Índice atual (relatório de jul/2026)</span><b>1.044%</b></div><div class="track"><div class="fill" data-w="100"></div></div></div>
+      <div class="bar-row"><div class="t"><span>Mínimo exigido</span><b>140%</b></div><div class="track"><div class="fill min" data-w="13.4"></div></div></div>
+      <p class="note">Composição: estoque R$ 24.788.520,00 + recebíveis R$ 5.366.336,93 + fundo de reserva R$ 154.166,90, sobre dívida de R$ 2.902.990,93. O índice pode variar. O estoque ainda não está vendido.</p>
+    </div>
+  </div>
+</section>
+
+<!-- OBRA -->
+<section class="dark" id="obra">
+  <div class="wrap">
+    <span class="eyebrow">Atualização da operação &middot; julho de 2026</span>
+    <h2>A obra está em andamento. Você pode ver.</h2>
+    <p class="lead">Visita da GCB e da empresa de monitoramento em 11 de agosto de 2026.</p>
+    <div class="gal">
+      <figure class="ph wide"><img src="/fotos/cri-fh-jockey/canteiro-de-obras.jpg" alt="Vista do canteiro de obras do FH Jockey" loading="lazy"><figcaption>Vista do canteiro de obras.</figcaption></figure>
+      <figure class="ph"><img src="/fotos/cri-fh-jockey/portao-canteiro.jpg" alt="Portão de acesso ao canteiro" loading="lazy"><figcaption>Portão de acesso ao canteiro.</figcaption></figure>
+      <figure class="ph"><img src="/fotos/cri-fh-jockey/fachada.jpg" alt="Fachada do empreendimento" loading="lazy"><figcaption>Fachada do empreendimento.</figcaption></figure>
+    </div>
+    <div class="timeline">
+      <div class="fact"><i></i><p>Nova liberação de R$ 1,3 milhão em 10/02/2026. O crédito liberado soma R$ 3,0 milhões.</p></div>
+      <div class="fact"><i></i><p>Avanço físico de 25,88%, contra 16,59% no início da operação. Obras retomadas em julho de 2026.</p></div>
+      <div class="fact"><i></i><p>Últimos serviços: concretagem dos blocos de fundação e contenção, execução de laje.</p></div>
+      <div class="fact"><i></i><p>1 venda realizada, equivalente a 16,67% das unidades, já desconsideradas as permutas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIME -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Quem está por trás</span>
+    <h2>Gente que já fez isso em São Paulo.</h2>
+    <div class="team">
+      <div><h3>FFI Empreendimentos</h3><p>Fábio Rossi atua no mercado imobiliário desde 1982 e lidera marketing e vendas do projeto.</p></div>
+      <div><h3>FCL Participações</h3><p>Fabio Lazarini, economista com MBA em Finanças pela FIA/USP, vem de Pernod Ricard, Lufthansa, Itaú e Accor. Cuida da gestão financeira e da incorporação.</p></div>
+      <div><h3>Gattaz Engenharia</h3><p>Construtora desde 1977, com mais de 60 empreendimentos concluídos, residenciais e comerciais.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIMULADOR -->
+<section class="sim" id="simulador">
+  <div class="wrap">
+    <span class="eyebrow">Simulador</span>
+    <h2>Quanto isso vira por mês?</h2>
+    <p class="lead">Estimativa ilustrativa. O CDI varia e o resultado real pode ser diferente.</p>
+    <div class="sim-box">
+      <div>
+        <label for="valor">Quanto você quer investir (R$)</label>
+        <input id="valor" type="number" inputmode="numeric" min="1000" step="500" value="10000">
+        <input id="valorR" type="range" min="1000" max="200000" step="500" value="10000" aria-label="Valor do investimento">
+        <div class="hint">Mínimo de R$ 1.000.</div>
+        <div style="height:20px"></div>
+        <label for="cdi">CDI anual considerado (%)</label>
+        <input id="cdi" type="number" inputmode="decimal" step="0.05" value="14.00">
+        <div class="hint">Premissa editável. Substitua pelo CDI vigente.</div>
+      </div>
+      <div class="out" aria-live="polite">
+        <div style="font-size:13px;color:#aeb39c">Juros brutos estimados por mês</div>
+        <div class="m" id="outM">R$ 0</div>
+        <div class="row"><span>Taxa considerada</span><b id="outT">0% a.a.</b></div>
+        <div class="row"><span>Juros brutos até o vencimento</span><b id="outTot">R$ 0</b></div>
+        <p class="note" style="color:#aeb39c">Antes de impostos. Considera CDI + 4,00% a.a. somados e capitalização equivalente mensal. Pagamento mensal de juros, com principal no vencimento ou em amortizações antecipadas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RISCOS -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Transparência</span>
+    <h2>O que você precisa saber antes de investir.</h2>
+    <p class="lead">Retorno vem com risco. Estes são os pontos que pesam na decisão.</p>
+    <ul class="risk">
+      <li><b>Sem garantia do FGC.</b> Os certificados não contam com garantia das partes, de seguro ou do Fundo Garantidor de Créditos.</li>
+      <li><b>A CVM não analisa a oferta previamente.</b> Oferta com dispensa de registro, nos termos da Resolução CVM 88.</li>
+      <li><b>Risco de obra e de vendas.</b> O pagamento depende do avanço da obra e da venda das unidades. Até agora houve 1 venda.</li>
+      <li><b>Taxa efetiva menor que a original.</b> A emissão foi originalmente remunerada a CDI + 5,50% a.a. Pelo ágio na venda do ativo, a rentabilidade efetiva para o novo investidor é CDI + 4,00% a.a.</li>
+      <li><b>Leia o Termo de Securitização,</b> principalmente a seção de fatores de risco.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow">Perguntas frequentes</span>
+    <h2>Direto ao ponto.</h2>
+    <details><summary>O que é um CRI?</summary><p>Certificado de Recebíveis Imobiliários é um título de renda fixa lastreado em créditos do setor imobiliário. Aqui, o lastro é o financiamento para terminar a obra do FH Jockey.</p></details>
+    <details><summary>Quando recebo?</summary><p>Os juros são pagos mensalmente. O vencimento previsto é 20 de novembro de 2029. A operação prevê amortizações parciais antecipadas se entrarem recursos de vendas, sem multa para o tomador.</p></details>
+    <details><summary>Para onde vai o dinheiro da obra?</summary><p>A GCB paga fornecedores e prestadores diretamente, em tranches, mediante comprovação documental da destinação dos recursos.</p></details>
+    <details><summary>Quem emite e quem distribui?</summary><p>A GCB Securitizadora II S.A. estrutura e emite os certificados. A GCB Plataforma Eletrônica de Investimento Participativo S.A. os distribui, nos termos da Resolução CVM 88.</p></details>
+    <details><summary>Qual o valor mínimo?</summary><p>R$ 1.000,00.</p></details>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final dark" id="investir">
+  <div class="wrap">
+    <span class="eyebrow">Smart Risk Taking</span>
+    <h2>Escolha o risco com os dois olhos abertos.</h2>
+    <p class="lead">CDI + 4,00% a.a., juros mensais, garantias reais. A partir de R$ 1.000.</p>
+    <a class="btn btn-primary" href="#" data-cta="final" id="ctaFinal">Quero investir no FH Jockey</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="/logo-branco.png" alt="GCB Investimentos" style="display:block;height:24px;width:auto">
+    <p>Este material contém informações essenciais e deve ser lido como introdução ao Termo de Securitização da 293ª Emissão de Certificados de Recebíveis Imobiliários, série única, da GCB Securitizadora II S.A., para oferta pública com dispensa de registro perante a CVM, nos termos da Lei nº 14.430/2022 e da Resolução CVM 88.</p>
+    <p>Oferta originalmente remunerada a CDI + 5,50% a.a. Considerando o ágio pelo qual o emissor vende o ativo, a rentabilidade efetiva ao novo investidor é CDI + 4,00% a.a. A decisão de investimento deve considerar o Termo de Securitização, principalmente a seção de fatores de risco. A CVM não analisa previamente as ofertas realizadas nos termos da Resolução CVM 88 e não garante a veracidade das informações prestadas, a adequação à legislação ou a qualidade da sociedade empresária de pequeno porte.</p>
+    <p>Os certificados não contam com garantia das partes, de qualquer mecanismo de seguro ou do Fundo Garantidor de Créditos (FGC). Rentabilidade prevista não é promessa de retorno. Simulações são ilustrativas. Não invista antes de entender as informações essenciais da oferta. Dados de obra, vendas e índice de garantia referentes a julho de 2026.</p>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky">
+  <span>CDI + 4,00% a.a.<b>Juros mensais</b></span>
+  <a class="btn btn-primary" href="#investir" data-cta="sticky">Quero investir</a>
+</div>
+
+<script>
+(function(){
+  // Troque pelo link real do ativo no app/plataforma
+  var CTA_URL = "#";
+  var f = document.getElementById('ctaFinal'); if(CTA_URL!=="#") f.href = CTA_URL;
+
+  // barras
+  var r = document.getElementById('ratio');
+  var io = new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){r.querySelectorAll('.fill').forEach(function(b){b.style.width=b.dataset.w+'%'});io.disconnect()}
+  })},{threshold:.4});
+  io.observe(r);
+
+  // sticky cta
+  var hero = document.querySelector('.hero'), fin = document.getElementById('investir'), st = document.getElementById('sticky');
+  function tick(){
+    var past = hero.getBoundingClientRect().bottom < 0;
+    var atEnd = fin.getBoundingClientRect().top < window.innerHeight*0.8;
+    st.classList.toggle('on', past && !atEnd);
+  }
+  addEventListener('scroll',tick,{passive:true}); tick();
+
+  // simulador
+  var v = document.getElementById('valor'), vr = document.getElementById('valorR'), c = document.getElementById('cdi');
+  var brl = new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'});
+  var months = (function(){var n=new Date(),t=new Date(2029,10,20);return Math.max(1,(t.getFullYear()-n.getFullYear())*12+t.getMonth()-n.getMonth())})();
+  function calc(){
+    var val = Math.max(0, parseFloat(v.value)||0);
+    var cdi = parseFloat(String(c.value).replace(',','.'))||0;
+    var tx = (cdi+4)/100;
+    var m = Math.pow(1+tx,1/12)-1;
+    var mensal = val*m;
+    document.getElementById('outM').textContent = brl.format(mensal);
+    document.getElementById('outT').textContent = (cdi+4).toFixed(2).replace('.',',')+'% a.a.';
+    document.getElementById('outTot').textContent = brl.format(mensal*months);
+  }
+  v.addEventListener('input',function(){vr.value=v.value;calc()});
+  vr.addEventListener('input',function(){v.value=vr.value;calc()});
+  c.addEventListener('input',calc);
+  calc();
+})();
+</script>
+</body>
+</html>
